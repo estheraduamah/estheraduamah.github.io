@@ -105,9 +105,14 @@ nav a.active, nav a:hover { border-bottom-color: var(--primary-accent); }
 
 /* --- 5. HERO SECTION --- */
 .hero-section {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 40px; 
-    padding: 60px 0; min-height: calc(80vh - 100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0;
+    min-height: calc(80vh - 100px);
+
+    margin-left: 85px;   /* adjust 20-60px to taste */
 }
 .text-container {
     flex: 1; max-width: 550px;

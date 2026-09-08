@@ -6,12 +6,36 @@
     <title>Skills & Honors - Esther Aduamah</title>
     <link rel="stylesheet" href="styles.css">
     </head>
+
+<script>
+    (function () {
+        try {
+            const saved = localStorage.getItem('theme');
+            const systemPrefersDark =
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            const isDark = saved
+                ? saved === 'dark'
+                : systemPrefersDark;
+
+            if (isDark) {
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+            }
+        } catch (e) {
+            // ignore errors
+        }
+    })();
+</script>
+
 <body>
 
     <header>
         <div class="logo"><a href="index.html">esther aduamah</a></div>
         <nav>
-            <a href="experience.html" class="nav-link">experience</a>
+            <a href="experience.html" class="nav-link">projects</a>
             <a href="about.html" class="nav-link">about</a>
             <a href="skills.html" class="nav-link active">skills</a>
             <a href="blog.html" class="nav-link">blog</a>
@@ -34,7 +58,7 @@
                     <div class="item-details">
                         <h3>olin college of engineering</h3>
                         <span class="sub-header">B.S. Biomedical Engineering</span>
-                        <p><strong>coursework: </strong>Tissue Building, Calderwood Seminar: Biology in the News, Software Design, Data Science, Mathematical Modeling, Discrete Math, Research Methods for Ethics of Technology, Human Computer Interaction, Data Structures & Algorithms</p>
+                        <p><strong>coursework: </strong>Tissue Building, Calderwood Seminar: Biology in the News, Software Design, Data Science, Mathematical Modeling, Discrete Math, Human Computer Interaction, Data Structures & Algorithms, Biomedical Device Design, Introduction to Population Health, , and Biostaics, </p>
                     </div>
                     <div class="item-meta">
                         <span>expected may 2027</span>
@@ -58,7 +82,7 @@
             <div style="margin-bottom: 40px;">
                 <h2>technical skills</h2>
                 <div class="tag-container">
-                    <span class="tech-tag">python (pandas, numpy)</span>
+                    <span class="tech-tag">python (pandas, numpy {add summer ones})</span>
                     <span class="tech-tag">r</span>
                     <span class="tech-tag">matlab</span>
                     <span class="tech-tag">arduino</span>
@@ -82,9 +106,10 @@
             <div style="margin-bottom: 50px;">
                 <h2 style="border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; margin-bottom: 20px;">honors & awards</h2>
                 <ul style="list-style: none; padding: 0; color: var(--text-color); font-family: var(--font-heading); font-size: 1.1rem; font-weight: 400;">
-                    <li style="margin-bottom: 12px;">+ merit-based half tuition scholarship</li>
+                    <li style="margin-bottom: 12px;">+ Merit-Based Half Tuition Scholarship</li>
                     <li style="margin-bottom: 12px;">+ Stanford Engineering Research Introductions (SERIS) Scholar</li>
                     <li style="margin-bottom: 12px;">+ Code2040 fellow</li>
+                    <li style="margin-bottom: 12px;">+ Tech for Resisitance Hackathon Honorable Mention Winner</li>
                 </ul>
             </div>
 
@@ -103,8 +128,8 @@
     </div>
 
     <footer>
-        <span class="copyright">Esther Aduamah - © 2025</span>
-        <span class="love-note">built with code, chocolate donuts, & lots of Cartoon Network &lt;3</span>
+        <span class="copyright">Esther Aduamah - © 2026</span>
+        <span class="love-note">built with code, Oreos, & lots of Cartoon Network &lt;3</span>
     </footer>
     <script src="script.js"></script>
 </body>
