@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radiomics & Spatial Transcriptomics in Breast Cancer — Esther Aduamah</title>
+  <link rel="icon" type="image/jpeg" href="funphoto.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="case-page-body">
+  <!-- Top Reading Progress Bar -->
+  <div class="case-progress-track" aria-hidden="true">
+    <div id="case-progress-fill" class="case-progress-fill"></div>
+  </div>
+
+  <!-- Sticky Newspaper Masthead Bar -->
+  <nav class="case-newspaper-header" aria-label="Case Study Navigation">
+    <div class="case-nav-left">
+      <a href="index.html">&larr; Front Page</a>
+    </div>
+    <div class="case-nav-center">
+      <a href="index.html" class="case-mini-masthead">Esther Aduamah</a>
+      <span class="case-desk-tag">Computational Oncology</span>
+    </div>
+    <div class="case-nav-right">
+      <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+      <a href="blog.html" class="text-nav-link">Blog</a>
+      <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+      <span class="social-icon-group">
+            <a
+              href="https://www.linkedin.com/in/esther-aduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/eaduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+              </svg>
+            </a>
+            <button
+              type="button"
+              class="icon-link-btn"
+              onclick="copyEmail(this)"
+              aria-label="Copy email estheraduamah1@gmail.com"
+              title="Copy estheraduamah1@gmail.com"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+            </button>
+          </span>
+    </div>
+  </nav>
+
+  <!-- Gradient Hero Banner -->
+  <header class="case-hero" style="--hero-start: #9e3b54; --hero-mid: #d494a4;">
+    <a href="em-creations.html" class="case-arrow prev" aria-label="Previous project: E&amp;M Creations">&larr;</a>
+    <a href="sdoh-recommender.html" class="case-arrow next" aria-label="Next project: Social Determinants of Health Location Recommender">&rarr;</a>
+
+    <div class="case-hero-stage">
+      <img class="case-hero-cutout" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80" alt="Radiomics & Spatial Transcriptomics in Breast Cancer" />
+      <div class="case-hero-typography">
+        <h1 class="case-hero-title"><span class="stagger-right">Radiomics &amp;</span><span class="stagger-left">Spatial</span><span class="stagger-right">Transcriptomics</span></h1>
+        <p class="case-hero-subtitle">COMPUTATIONAL ONCOLOGY &middot; MACHINE LEARNING &middot; BIOMEDICAL IMAGING</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Newspaper Broadsheet Content -->
+  <article class="case-content-wrap">
+    <div class="case-overview-grid">
+      <div class="case-meta-table">
+        <div class="case-meta-label">YEAR</div>
+        <div class="case-meta-value">Apr–Aug 2026</div>
+
+        <div class="case-meta-label">ROLE</div>
+        <div class="case-meta-value"><ul><li>Undergraduate Research Assistant (REU)</li><li>ML Pipeline Development</li><li>Literature Synthesis</li></ul></div>
+
+        <div class="case-meta-label">TEAM</div>
+        <div class="case-meta-value"><div>Group</div><ul><li>Collaborator 1</li><li>Principal Investigator (Daub Lab)</li></ul></div>
+
+        <div class="case-meta-label">LAB / CONTEXT</div>
+        <div class="case-meta-value"><ul><li>Daub Lab &middot; Karolinska Institutet</li><li>NSF IRES US–Sweden Program</li></ul></div>
+
+        <div class="case-meta-label">OUTCOME</div>
+        <div class="case-meta-value"><ul><li>Poster Presentation @ BMES 2026 (Orlando, FL)</li></ul></div>
+        <div class="case-meta-label">LINKS</div>
+        <div class="case-meta-value"><ul><li><a href="https://sites.google.com/sandiego.edu/nsf-ires-us-sweden/home" target="_blank" rel="noreferrer">NSF IRES US–Sweden Program</a></li></ul></div>
+      </div>
+
+      <div class="case-narrative">
+        <p>As an Undergraduate Research Assistant (REU) in the Daub Lab at Karolinska Institutet in Stockholm, I conducted literature reviews on breast cancer biology and developed machine learning approaches linking clinical imaging with molecular tissue architecture.</p>
+        <p>Our study integrates clinical radiomics and spatial transcriptomics to characterize mammographic density patterns across Estrogen Receptor Positive (ER+) and Triple-Negative breast cancer subtypes.</p>
+        <p>Findings from this work are being presented at the 2026 Biomedical Engineering Society (BMES) Annual Meeting in Orlando, Florida.</p>
+      </div>
+    </div>
+
+    <div class="case-sections-stack">
+      <section id="chapter-01" class="case-chapter">
+        <div class="chapter-heading-col">
+          <span class="chapter-num">01 /</span>
+          <h3 class="chapter-heading">Cross-Scale Biomarker Alignment</h3>
+        </div>
+        <div class="chapter-body">
+          <p>High mammographic breast density both masks lesions on clinical scans and independently elevates cancer risk, yet macro-level radiomic descriptors are rarely mapped onto underlying cellular gene expression.</p>
+        </div>
+      </section>
+      <section id="chapter-02" class="case-chapter">
+        <div class="chapter-heading-col">
+          <span class="chapter-num">02 /</span>
+          <h3 class="chapter-heading">Subtype Feature Modeling (ER+ vs. Triple-Negative)</h3>
+        </div>
+        <div class="chapter-body">
+          <p>We structured quantitative radiomic texture features alongside spatially resolved transcriptomic profiles to compare stromal and epithelial signatures differentiating ER+ and triple-negative breast cancer cohorts.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="case-gallery-divider">
+      <h3 class="case-gallery-header">Visual Documentation &amp; Artifacts</h3>
+    </div>
+    <div class="case-gallery">
+      <figure class="case-figure wide">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1100&q=80" alt="Placeholder visual — swap with radiomics-to-spatial-transcriptomics integration figure." loading="lazy" />
+        <figcaption>Placeholder visual — swap with radiomics-to-spatial-transcriptomics integration figure.</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=750&q=80" alt="Placeholder visual — swap with ER+ vs. triple-negative feature plots." loading="lazy" />
+        <figcaption>Placeholder visual — swap with ER+ vs. triple-negative feature plots.</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=750&q=80" alt="Placeholder visual — swap with BMES 2026 conference poster." loading="lazy" />
+        <figcaption>Placeholder visual — swap with BMES 2026 conference poster.</figcaption>
+      </figure>
+    </div>
+
+    <footer class="case-more-footer">
+      <a href="em-creations.html" class="case-more-btn">&larr; E&amp;M Creations</a>
+      <a href="index.html" class="case-more-btn">Front Page</a>
+      <a href="sdoh-recommender.html" class="case-more-btn">Social Determinants of Health Location Recommender &rarr;</a>
+    </footer>
+  </article>
+
+  <script src="site.js"></script>
+</body>
+</html>

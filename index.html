@@ -1,119 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esther Aduamah - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
-    </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esther Aduamah — HCI, Health Equity &amp; Biomedical Engineering</title>
+  <link rel="icon" type="image/jpeg" href="funphoto.jpg" />
+
+  <!-- Chomsky ("Manufacturing Consent") Masthead + Editorial Serifs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-    <header>
-        <div class="logo"><a href="index.html">esther aduamah</a></div>
-        <nav>
-            <a href="experience.html" class="nav-link">projects</a> 
-            <a href="about.html" class="nav-link">about</a>
-            <a href="skills.html" class="nav-link">skills</a>
-            <a href="blog.html" class="nav-link">blog</a>
-            <a href="contact.html" class="nav-link">contact</a>
-            <button id="theme-toggle">🌙</button>
-        </nav>
+  <div class="newspaper-shell">
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1><a href="index.html">Esther Aduamah</a></h1>
     </header>
 
-    <div class="content-wrapper">
-        <section class="hero-section">
-            <div class="text-container scroll-fade-in">
-                <p>
-                    I'm Esther--
-                    a health equity researcher, biomedical engineer,
-                    data scientist, systems thinker,
-                    and an advocate for accessible care.
-
-                    I'm currently bridging the gap between 
-                    data and human stories.
-                </p>
-            </div>
-            
-<div class="image-container">
-    <img 
-        src="images/professionalphoto.png" 
-        alt="Professional Photo of Esther Aduamah" 
-        style="max-width: 450px; height: auto; display: block;" 
-    >
-</div>
-        </section>
-
-        <section class="page-section scroll-fade-in">
-            <h2 class="page-title">experience</h2>
-            
-            <div class="list-container">
-                
-                <div class="list-item">
-                    <div class="item-details">
-                        <h3><a href="https://sites.google.com/sandiego.edu/nsf-ires-us-sweden/home">Karolinska Institute - Daub Lab</a></h3>
-                        <span class="sub-header">NSF Researcher</span>
-                        <p>Researched, authored, and submitted grant proposals to secure funding for r&d initiatives; aid in wet lab experiments and data collection for research and development.</p>
-                    </div>
-                    <div class="item-meta">
-                        <span>april 2026 - present</span>
-                    </div>
-                </div>
-
-
-                <div class="list-item">
-                    <div class="item-details">
-                        <h3> <a href= "https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented">Human-Centered Computing Lab</a></h3>
-                        <span class="sub-header">Research Assistant- Project Manager</span>
-                        <p>Developing a research prototype of a "MyChart-style" patient portal using html and javascript to study navigation challenges faced by elder adults; building multimodal ai interfaces using openai. 
-                            
-                            <a href= "https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented">Published research in ACM ASSETS (2026).</a></p>
-                    </div>
-                    <div class="item-meta">
-                        <span>jan 2025 - present</span>
-                    </div>
-                </div>
-
-                <div class="list-item">
-                    <div class="item-details">
-                        <h3><a href="https://www.linkedin.com/company/conduitcomputing/posts/?feedView=all">Conduit</a></h3>
-                        <span class="sub-header">Intern Biomedical Engineer</span>
-                        <p>Researched, authored, and submitted grant proposals to secure funding for r&d initiatives; aid in wet lab experiments and data collection for research and development.</p>
-                    </div>
-                    <div class="item-meta">
-                        <span>aug 2025 - dec 2025</span>
-                    </div>
-                </div>
-
-                <div class="list-item">
-                    <div class="item-details">
-                        <h3><a href="https://fenwayhealth.org/">Fenway Health</a></h3>
-                        <span class="sub-header">Activist Academy Fellow</span>
-                        <p>Conducting research on the reproductive health team with a focus on systemic inequities; interviewing experts to produce a “pride in our health” podcast episode.</p>
-                    </div>
-                    <div class="item-meta">
-                        <span>jul 2025 - may 2026</span>
-                    </div>
-                </div>
-
-                <div class="list-item">
-                    <div class="item-details">
-                        <h3>Health Equity and Access Lab (HEAL)</h3>
-                        <span class="sub-header">Humanities Divison Co-Creator</span>
-                        <p>Conducted a comprehensive analysis of clinical trial methodologies, identifying gaps in accessibility and proposing targeted solutions to address participant distrust.</p>
-                    </div>
-                    <div class="item-meta">
-                        <span>jul 2024 - dec 2024</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+    <!-- Auto-Updating Dateline -->
+    <div class="dateline">
+      <span id="live-time" class="dateline-left">--:--</span>
+      <span id="live-date" class="dateline-center">LOADING DATE...</span>
+      <span class="dateline-right">BOSTON, MA</span>
     </div>
 
-    <footer>
-        <span class="copyright">Esther Aduamah - © 2026</span>
-        <span class="love-note">built with code, Oreos, & lots of Cartoon Network &lt;3</span>
-    </footer>
+    <!-- SECOND HEADER: STATIONARY 3-QUESTION BAR WITH SCRAMBLETEXT CYCLING -->
+    <nav id="questions-ribbon" class="questions-ribbon" aria-label="Design Questions I Think About">
+      <span class="questions-lead">Questions I&rsquo;m Thinking About</span>
+      <ul id="questions-list" class="questions-list">
+        <li><a href="should-i-use-this.html" class="question-link" data-slot="0">Should I use this or my mind?</a></li>
+        <li><a href="should-i-use-this.html" class="question-link" data-slot="1">When does AI support vs. replace autonomy?</a></li>
+        <li><a href="geospatial-redlining.html" class="question-link" data-slot="2">How do spatial boundaries encode health inequity?</a></li>
+      </ul>
+      <div id="questions-cycle-dots" class="questions-cycle-dots" aria-label="Question sets"></div>
+    </nav>
 
-    <script src="script.js"></script>
+    <!-- Split Front Page -->
+    <main class="front-page-body">
+      <!-- LEFT HAND SIDE: Sticks at Top While Right Side Scrolls -->
+      <section class="col-lead">
+        <div class="lead-photo-frame">
+          <img
+            src="images/nsbeproftrans.png"
+            alt="Professional headshot portrait of Esther Aduamah, Biomedical Engineering student at Olin College of Engineering, smiling warmly at the camera"
+            class="lead-photo"
+            onerror="this.src='images/professionalphoto.png'"
+          />
+        </div>
+
+        <div class="status-banner">
+          B.S. Biomedical Engineering &rsquo;27 &middot; Olin College of Engineering
+        </div>
+
+        <!-- Links Directly Under Major: CV (PDF), Blog, Hobbies + Clickable LinkedIn, GitHub, Mail Icons -->
+        <nav class="bio-links" aria-label="Primary Links">
+          <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+          <a href="blog.html" class="text-nav-link">Blog</a>
+          <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+          <span class="social-icon-group">
+            <a
+              href="https://www.linkedin.com/in/esther-aduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/eaduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+              </svg>
+            </a>
+            <button
+              type="button"
+              class="icon-link-btn"
+              onclick="copyEmail(this)"
+              aria-label="Copy email estheraduamah1@gmail.com"
+              title="Copy estheraduamah1@gmail.com"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+            </button>
+          </span>
+        </nav>
+
+        <p class="bio-copy">
+          I&rsquo;m Esther (she/her), a Biomedical Engineering senior at Olin College (&rsquo;27)
+          who builds at the fault line where clinical systems fail the people they&rsquo;re meant
+          to serve. Whether co-designing a wearable AI assistant with Boston older adults who dread
+          patient portals or modeling breast cancer density across radiomics and spatial
+          transcriptomics at
+          <a href="https://sites.google.com/sandiego.edu/nsf-ires-us-sweden/home" target="_blank" rel="noreferrer">Karolinska Institutet</a>,
+          I pair hard engineering with lived human evidence.
+        </p>
+
+        <p class="bio-copy">
+          I serve as a Project Manager at Olin&rsquo;s
+          <a href="https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented" target="_blank" rel="noreferrer">Human-Centered Computing Lab</a>,
+          and previously investigated clinical trial distrust in Olin&rsquo;s Health Equity &amp; Access Lab
+          and reproductive health access as an Activist Academy Fellow at
+          <a href="https://fenwayhealth.org/" target="_blank" rel="noreferrer">Fenway Health</a>.
+        </p>
+
+        <!-- Focus & Honors Box -->
+        <div class="editorial-box focus-box">
+          <span class="editorial-box-label">Focus &amp; Honors</span>
+          Wearable &amp; Multimodal AI &middot; Spatial Transcriptomics &amp; Radiomics &middot;
+          Stanford SERGE &rsquo;26 &amp; SERIS &rsquo;24 &middot; ACM SIGACCESS Scholar &middot;
+          Founder &amp; President, Olin NSBE.
+        </div>
+      </section>
+
+      <!-- RIGHT HAND SIDE: Flows Naturally Down Through Featured & Other Projects -->
+      <section class="col-right-feed" aria-label="Projects and Publications">
+        <!-- Quick Publications Trigger Strip -->
+        <div class="editorial-box pub-strip">
+          <div>
+            <span class="editorial-box-label">In Print</span>
+            Peer-reviewed HCI paper (ACM ASSETS &rsquo;26) &amp; conference presentations (BMES, AAAS).
+          </div>
+          <button type="button" class="pub-trigger-btn" onclick="openPubModal()">
+            Publications (3)
+          </button>
+        </div>
+
+        <!-- SECTION 1: FEATURED PROJECTS (5) -->
+        <div class="projects-section">
+          <div class="section-divider-header">
+            <h2>Featured Projects</h2>
+          </div>
+          <div class="two-col-projects">
+            <a href="should-i-use-this.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="images/labglasses.png" alt="“Should I Use This or My Mind?”" class="img-primary" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='labglasses.png';}" />
+                <img src="images/labpic.jpg" alt="“Should I Use This or My Mind?” lab session" class="img-hover img-contain" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='labpic.jpg';}" />
+              </div>
+              <p class="project-kicker">Human-Computer Interaction</p>
+              <h3 class="project-title">“Should I Use This or My Mind?”</h3>
+              <p class="project-summary">Synthesizing participatory design findings into a wearable multimodal interface for patient portal navigation.</p>
+              <p class="project-venue">Olin HCC Lab &middot; ACM ASSETS &rsquo;26</p>
+            </a>
+            <a href="holo-kitchen.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="images/holokit.png" alt="Holo-Kitchen" class="img-primary img-contain" loading="lazy" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='holokit.png';}" />
+                <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&w=700&q=80" alt="Holo-Kitchen alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Augmented Reality &amp; HCI</p>
+              <h3 class="project-title">Holo-Kitchen</h3>
+              <p class="project-summary">Mixed-reality culinary interface anchoring hands-free spatial cues, timers, and step-by-step guidance in the kitchen.</p>
+              <p class="project-venue">AR &amp; Multimodal Interaction</p>
+            </a>
+            <a href="geospatial-redlining.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=700&q=80" alt="Geospatial Redlining" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80" alt="Geospatial Redlining alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Geospatial Health Equity</p>
+              <h3 class="project-title">Geospatial Redlining</h3>
+              <p class="project-summary">Spatial analysis overlaying 1930s HOLC redlining polygons with present-day environmental burdens and clinical access.</p>
+              <p class="project-venue">Spatial Data &amp; Health Equity</p>
+            </a>
+            <a href="em-creations.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=700&q=80" alt="E&amp;M Creations" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=700&q=80" alt="E&amp;M Creations alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Design &amp; Creative Venture</p>
+              <h3 class="project-title">E&amp;M Creations</h3>
+              <p class="project-summary">Co-founded creative design and custom fabrication venture blending tactile craft, branding, and rapid prototyping.</p>
+              <p class="project-venue">Co-Founder &middot; Product &amp; Brand Design</p>
+            </a>
+            <a href="radiomics-spatial.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80" alt="Radiomics &amp; Spatial Transcriptomics in Breast Cancer" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80" alt="Radiomics &amp; Spatial Transcriptomics in Breast Cancer alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Computational Oncology</p>
+              <h3 class="project-title">Radiomics &amp; Spatial Transcriptomics in Breast Cancer</h3>
+              <p class="project-summary">Machine learning integration of mammographic density patterns across ER+ and triple-negative breast cancer.</p>
+              <p class="project-venue">Karolinska Institutet &middot; BMES &rsquo;26</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- SECTION 2: OTHER PROJECTS (8) -->
+        <div class="projects-section">
+          <div class="section-divider-header">
+            <h2>Other Projects</h2>
+          </div>
+          <div class="two-col-projects">
+            <a href="sdoh-recommender.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80" alt="Social Determinants of Health Location Recommender" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80" alt="Social Determinants of Health Location Recommender alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Health Equity Informatics</p>
+              <h3 class="project-title">Social Determinants of Health Location Recommender</h3>
+              <p class="project-summary">Weighted KD-tree ranking algorithm analyzing county-level SDOH metrics across 900+ counties in Kotlin.</p>
+              <p class="project-venue">Data Analysis &middot; Dec 2025</p>
+            </a>
+            <a href="clinical-trial-equity.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80" alt="Clinical Trial Methodologies &amp; Participant Distrust" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80" alt="Clinical Trial Methodologies &amp; Participant Distrust alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Health Equity &amp; Policy</p>
+              <h3 class="project-title">Clinical Trial Methodologies &amp; Participant Distrust</h3>
+              <p class="project-summary">Evaluating clinical study protocols and designing targeted interventions for equitable trial participation.</p>
+              <p class="project-venue">Health Equity &amp; Access Lab &middot; Fenway Health</p>
+            </a>
+            <a href="symptom-mapping.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80" alt="Patient Symptom Mapping &amp; Decision Support Tool" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80" alt="Patient Symptom Mapping &amp; Decision Support Tool alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Clinical Informatics</p>
+              <h3 class="project-title">Patient Symptom Mapping &amp; Decision Support Tool</h3>
+              <p class="project-summary">Bipartite graph model in Kotlin connecting structured symptom and disease ontologies.</p>
+              <p class="project-venue">Informatics Developer &middot; Oct 2025</p>
+            </a>
+            <a href="nutrition-trends.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=80" alt="Nutritional Trends Longitudinal Data Pipeline" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80" alt="Nutritional Trends Longitudinal Data Pipeline alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Public Health Data</p>
+              <h3 class="project-title">Nutritional Trends Longitudinal Data Pipeline</h3>
+              <p class="project-summary">Python pipeline processing 143,000+ longitudinal USDA records across JSON and CSV formats.</p>
+              <p class="project-venue">Python &middot; Apr 2025</p>
+            </a>
+            <a href="emg-prosthetic.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80" alt="EMG-Controlled Prosthetic Arm Prototype" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80" alt="EMG-Controlled Prosthetic Arm Prototype alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Assistive Hardware</p>
+              <h3 class="project-title">EMG-Controlled Prosthetic Arm Prototype</h3>
+              <p class="project-summary">Real-time EMG signal acquisition and actuation control for an assistive prosthetic prototype.</p>
+              <p class="project-venue">Biomedical Engineering</p>
+            </a>
+            <a href="methylparaben.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80" alt="Microbial Degradation of Methylparaben in Black Hair Care" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80" alt="Microbial Degradation of Methylparaben in Black Hair Care alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Environmental Health</p>
+              <h3 class="project-title">Microbial Degradation of Methylparaben in Black Hair Care</h3>
+              <p class="project-summary">Evaluating microbial methods to degrade endocrine-disrupting parabens in personal care products.</p>
+              <p class="project-venue">Wet-Lab Study</p>
+            </a>
+            <a href="justice-chamber.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80" alt="Justice Chamber &amp; Mask Effectiveness Modeling" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80" alt="Justice Chamber &amp; Mask Effectiveness Modeling alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Systems &amp; Epidemiology</p>
+              <h3 class="project-title">Justice Chamber &amp; Mask Effectiveness Modeling</h3>
+              <p class="project-summary">Statistical modeling of mask compliance paired with human-centered public health design.</p>
+              <p class="project-venue">Human-Centered Design</p>
+            </a>
+            <a href="pid-robot.html" class="project-card">
+              <div class="thumb-frame">
+                <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80" alt="PID Line-Following Autonomous Robot" class="img-primary" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80" alt="PID Line-Following Autonomous Robot alternate view" class="img-hover" loading="lazy" />
+              </div>
+              <p class="project-kicker">Robotics &amp; Controls</p>
+              <h3 class="project-title">PID Line-Following Autonomous Robot</h3>
+              <p class="project-summary">Closed-loop PID control architecture and IR sensor calibration on Arduino hardware.</p>
+              <p class="project-venue">Embedded Systems</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============================================================
+       POP-UP: COMPACT PUBLICATIONS & CONFERENCES LIST
+       ============================================================ -->
+  <div id="pub-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pub-modal-title">
+    <div class="modal-sheet">
+      <button type="button" class="modal-close" onclick="closePubModal()">Close &times;</button>
+      <p class="modal-kicker">Curriculum Vitae &middot; Selected Output</p>
+      <h2 class="modal-title" id="pub-modal-title">Publications &amp; Presentations</h2>
+      <p class="modal-meta">Esther Aduamah &middot; Olin College of Engineering &amp; Karolinska Institutet</p>
+
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-badge">Technical Paper &middot; Oct 2026</span>
+          <p class="pub-item-title">
+            &ldquo;Should I Use This or My Mind?&rdquo;: Designing a Wearable Multimodal Tech Assistant for Older Adults Navigating Patient Portals
+          </p>
+          <p class="pub-item-meta">
+            Co-Author &middot; <strong>ACM ASSETS 2026</strong> (ACM SIGACCESS Travel Scholarship Recipient)
+          </p>
+        </li>
+
+        <li class="pub-item">
+          <span class="pub-badge">Conference Poster &middot; Oct 2026</span>
+          <p class="pub-item-title">
+            Integrating Clinical Radiomics and Spatial Transcriptomics to Characterize Mammographic Density Patterns in Estrogen Receptor Positive and Triple-Negative Breast Cancer
+          </p>
+          <p class="pub-item-meta">
+            Presenting Author &middot; <strong>Biomedical Engineering Society (BMES) Annual Meeting</strong>, Orlando, FL
+          </p>
+        </li>
+
+        <li class="pub-item">
+          <span class="pub-badge">Conference Presentation &middot; 2025</span>
+          <p class="pub-item-title">
+            Undergraduate Research Presentation
+          </p>
+          <p class="pub-item-meta">
+            Presenter &middot; <strong>AAAS (American Association for the Advancement of Science) Annual Meeting</strong>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
 </body>
 </html>

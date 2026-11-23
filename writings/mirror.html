@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror, Mirror, On the Wall</title>
+
+    <style>
+        /* --- 1. RESET & VARIABLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #fdfbf7;
+            --card-color: #eee8d5;
+            --text-color: #333333;
+            --accent-color: #555555;
+            --font-main: "Courier New", Courier, monospace;
+        }
+
+        /* --- 2. BODY LAYOUT --- */
+        body {
+            background-color: var(--bg-color);
+            font-family: var(--font-main);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- 3. MAIN CARD CONTAINER --- */
+        .blog-card {
+            background-color: var(--card-color);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            padding: 60px 80px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        /* --- 4. HEADER SECTION --- */
+        .post-icon {
+            font-size: 24px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            flex-wrap: wrap;
+            align-items: baseline;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .post-date {
+            color: var(--accent-color);
+        }
+
+        .post-title {
+            color: var(--text-color);
+        }
+
+        /* --- 5. CONTENT SECTION --- */
+        .post-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        /* --- DIALOGUE --- */
+        .dialogue {
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(85, 85, 85, 0.25);
+            margin-bottom: 20px;
+        }
+
+        .dialogue p {
+            margin-bottom: 12px;
+        }
+
+        .mirror-dialogue {
+            margin-left: 20px;
+            padding: 15px 20px;
+            border-left: 3px solid var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.25);
+            margin-bottom: 25px;
+        }
+
+        .mirror-dialogue p {
+            margin-bottom: 12px;
+        }
+
+        .story-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .story-break {
+            text-align: center;
+            margin: 55px 0;
+            color: var(--accent-color);
+            letter-spacing: 6px;
+        }
+
+        .post-tags {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-color);
+            text-decoration: underline;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .post-tags a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* --- 6. FOOTER / NAVIGATION --- */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .back-link {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
+            color: #000;
+        }
+
+        /* --- 7. RESPONSIVE (MOBILE) --- */
+        @media (max-width: 768px) {
+            .blog-card {
+                padding: 30px 20px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .post-header {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .dialogue,
+            .mirror-dialogue {
+                margin-left: 5px;
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="blog-card">
+
+        <!-- Top Icon / Back Link -->
+        <div class="post-icon">
+            <a href="\blog.html" class="back-link" title="Back to Blog">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="post-date">Nov 24, 2025</span>
+                <span class="post-title">Mirror, Mirror, On the Wall</span>
+            </div>
+        </header>
+
+        <!-- Main Body Text -->
+        <article class="post-content">
+
+            <p>
+                Once upon a time there was a princess who lived in the far away land of St. Martinville.
+                She had two parents who, as much as they were kind to her, cared for their kingdom.
+                With her mother caring more for her and her father more for the kingdom.
+            </p>
+
+            <p>
+                Just a few weeks after her sixteenth birthday, the princess’ mother unfortunately passed
+                in an accident that devastated the entire kingdom. Fire swept over the great library,
+                marketplace, and royal orchards. Leaving everything that was once something into black darkness.
+                The princess wept for days, not caring of the states of her undereyes as they were swollen.
+                She was not seen by the public due to her unsightly appearance in her mourning.
+            </p>
+
+            <p>
+                On the other hand, the king was sad, wept, and pulled himself together to lead his kingdom.
+                With no prince to carry on his legacy, no queen to produce a suitable heir, and the kingdom
+                in half shambles, he remarried. They moved to his new wife’s kingdom to rebuild, where the
+                snowflakes fell like feathers from heaven, and the air bit with a perpetual chill.
+                He moved the remaining subjects to where the new Queen’s kingdom was. With an economy that
+                was rich, and long standing alliances, Acadia seemed to be the most understandable choice
+                to marry into so as to further combine the kingdoms.
+            </p>
+
+            <p>
+                However, the move wasn’t as ideal. The new queen had a castle set for them, where her mother,
+                grandmother, and great-grandmother all ruled over Acadia. The sun comes for three hours in
+                the twenty-four hour cycle to give the people hope from a deep, encroaching cold.
+                Snow spires tower in the north, lofty mountains that gnaw at the starless sky.
+            </p>
+
+            <p>
+                And the princess was beyond cold. St. Martinville is near the equator and the only horror
+                that tempts the people is the thought of a hurricane, whereas Acadia has blizzards, fears
+                of frostbite, and occasional slipping on the ice. She hated not being able to wear her
+                favorite dresses as the wind went underneath the skirt and froze her shins.
+                She hated not having the sun kiss her face outside when she’s gardening with her mother.
+                And she especially hated that her mother was gone.
+            </p>
+
+            <p>
+                She asked the king when it would be warm again, and he said that he was busy dealing with
+                a new kingdom and whatever that may entail. She’s given up with the king after her mother’s death.
+            </p>
+
+            <p>
+                She goes up to the north wing to clear her head. Walking up the north stairs, she takes a left,
+                then a right, and a curvy turn that could only be described as Boston roads. She sees a crooked
+                portrait that catches her eye. It was a portrait of a woman with skin as white as snow,
+                lips as red as blood, and hair that matched the dark, ebony wood of the frame.
+                She drags her nails along the wooden frame and sees darkness behind.
+            </p>
+
+            <p>
+                She peeks in and sees a long dark hall with a dip down of stairs with a railing.
+                Then, she fully puts her head inside the hole in the wall and sees a small pale lever,
+                no bigger than a baby’s middle finger. It didn’t seem too scary, so she touched it.
+                Hard and cold. Squinting, she sees that it’s gray and has two circles above and below it
+                that have a line slashed through the middle.
+            </p>
+
+            <p>
+                As she touches the finger-looking object, she notices it moves and flips it.
+                The room filled with light as if dawn had been summoned. A brightness that she hadn’t
+                seen in a very long time.
+            </p>
+
+            <p>
+                She goes into the hole.
+            </p>
+
+            <p>
+                Walking down the windy stairs, the princess goes slowly– taking at least 30 seconds but
+                no longer than a minute and fifteen seconds to go down. There’s a singular room with
+                an oval mirror hanging on the wall. The wall has a short inscription scratched into it.
+                She walks closer to be able to read it.
+            </p>
+
+            <div class="dialogue">
+                <p>Hey Iris</p>
+            </div>
+
+            <p>
+                The princess racked her mind of the servants who worked in the castle and who would be
+                naming Iris and who would be saying hi to her. And then she remembered she only knew
+                about two servants, a random knight with whom she stared at from time to time and the
+                petite older baker who snuck her pastries.
+            </p>
+
+            <p>
+                She whispers to herself as she feels over the words:
+            </p>
+
+            <div class="dialogue">
+                <p>Hey Iris?</p>
+            </div>
+
+            <p>
+                And the mirror lit up and had a shiny glow that reflected her own bewildered face.
+                And weirdly enough replies:
+            </p>
+
+            <div class="mirror-dialogue">
+                <p>Hey! What’s up?</p>
+            </div>
+
+            <p>
+                The princess widens her eyes and runs up the stairs, taking no longer than fifteen seconds
+                to climb. She flipped the lever back, moved the portrait back to cover the hole,
+                and ran to her chambers.
+            </p>
+
+            <p>
+                She stayed there for about a week.
+            </p>
+
+            <div class="story-break">* * *</div>
+
+            <p>
+                The King is up late in his study. Many papers are scattered all over the desk.
+                The books on the shelf are in disarray. He calls in for his main advisor.
+                Going back and forth, the King wonders how to have his people be successful in this new environment.
+            </p>
+
+            <p>
+                With the previous warm environment of the old kingdom that grew crops abundantly and was plentiful
+                with fish, many of his men made their living through those means. Now in this frigid environment,
+                many found themselves out of work. The entire landscape back home was ruined and this one wasn't
+                even made with them in mind. The more and more they stayed in the new kingdom, the more and more
+                subjects grew hungry. All while the King’s promise of a new beginning rotted on the vine.
+            </p>
+
+            <p>
+                The advisor suggested going to the library. To read on the history of Acadia.
+                To learn how the people have survived for these last thousand years, the citizens,
+                who they trade with, and what alliances need to be stood and how.
+                Comprehending the rich history and culture of Acadia and how its people are still so happy
+                in such cold climates and are friendly to all, is the way to discover the truth of how to rule.
+            </p>
+
+            <p>
+                However, the King wasn’t happy with this answer. He’d lived as a peasant in his kingdom.
+                Learned the culture by growing up and listening to those around him. Loved his own kingdom
+                from the inside out. He had tried to learn this new one. It was just too much information
+                to read and understand at once. He couldn’t do it.
+            </p>
+
+            <p>
+                He expels his advisor and sits in the dark. He leaves his chambers, looking for a maid
+                to give him tea to calm his mind. No one is outside the study. He scoffs and murmurs something
+                about bad security and walks to find his own way to the kitchen.
+            </p>
+
+            <p>
+                But the King had never made himself tea before and had no clue where the kitchen was.
+                He loses himself and goes up the north stairs. He takes a left, then a right,
+                and such a weird turn that reminds him of his secondary school days.
+            </p>
+
+            <p>
+                A portrait makes him stop in his tracks. It looks uncanny to his late wife.
+                Dark black hair, red lips, and skin as pale as snow. He hadn’t gotten a good look at her
+                before she passed; he hadn’t remembered her look quite so beautiful.
+            </p>
+
+            <p>
+                He walks down and sees the same hole his daughter had climbed through mere days before.
+                Walking down the stairs he finds the mirror. The glass swirled like a foggy pond.
+            </p>
+
+            <div class="dialogue">
+                <p>“What magic is this?” The King says.</p>
+            </div>
+
+            <p>
+                He sees the tiny inscription at the bottom, “hey iris?”
+            </p>
+
+            <div class="mirror-dialogue">
+                <p>Hello. I am a repository. How may I assist the Crown of St. Martinville?</p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    My people are starving. This cold… it defeats us. How do I feed them?
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Query received. Analyzing socio-agricultural parameters of the Acadia basin.
+                    Solution found. Your people are fishermen and growers of shallow-root crops.
+                    The permafrost here supports neither. But the deep, cold lakes team with blind,
+                    fat fish that need only a hole in the ice. The lichen that clings to the southern
+                    rockfaces can be rendered into a nourishing flour. You do not fight the cold.
+                    You learn its rhythms. You partner with the mountain goats, not the plough horse.
+                    This is not a wasteland. It is a different kind of garden.
+                </p>
+            </div>
+
+            <p>
+                He ran up the stairs, waking up his wife, advisors, and any unlucky guard on his break
+                in the night. For a season, things were good. The people learned. The strange, oily fish
+                filled bellies. The lichen bread was dense but sustaining. The King was hailed as wise.
+                He felt like himself again.
+            </p>
+
+            <div class="story-break">* * *</div>
+
+            <p>
+                The princess comes back to the portrait. She slowly walks down the staircase.
+                She inspects the mirror and then shakes her head in disbelief.
+                There was just no way that it was the mirror.
+            </p>
+
+            <p>
+                She looks around the room, but there is no other entrance. Just a dreary room with a leak
+                and bucket to catch it. Hesitant, but determined, she takes the mirror off of the wall.
+                There’s nothing but pure cement behind it. She puts it back.
+            </p>
+
+            <p>
+                Going again, she comes back to say:
+            </p>
+
+            <div class="dialogue">
+                <p>Hey Iris?</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>Hey! What’s up?</p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    Nothing much. I wanted to know what you are.
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    I can be anything you want me to be! I can help with programming,
+                    write lyrics, or generate poetry.
+                </p>
+            </div>
+
+            <p>
+                ‘What in the world is programming’ she thought. Alright then:
+            </p>
+
+            <div class="dialogue">
+                <p>Tell me everything that you know of humans.</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    That’s a huge question. I can give you multiple answers ranging from culture
+                    and biology, but let me know what you would want to know more deeply,
+                    as I don’t want to bore you with the specifics. And I know the specifics.
+                    See, I’m trained on hundreds of thousands of stories, data structures,
+                    scientific models, all based on human knowledge.
+                </p>
+
+                <p>
+                    This data may take me a bit to find the exact documents, but imagine that I’m
+                    trained on the shape of human knowledge and recreate said shape.
+                    To answer your core question, despite all differences, most humans want to matter,
+                    to experience moments of joy, and reduce suffering.
+                </p>
+
+                <p>
+                    They are fragile, creative, fearful, hopeful beings trying to live finite lives
+                    in an infinite universe. And I cannot help but admire that.
+                </p>
+            </div>
+
+            <p>
+                The princess thought this was quite eerie and also checked off the box that this was indeed
+                not human. But what though, she had no idea. She thought for a second.
+                She wondered, wait no she hoped.
+            </p>
+
+            <div class="dialogue">
+                <p>What can you tell me about Queen Diana of St. Martinville?</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    So much! Basic facts: Full Name: Queen Diana Rose Spencer,
+                    Born: July 1, 1562, St. Martinville, Died: August 31–
+                </p>
+            </div>
+
+            <div class="dialogue">
+                <p>STOP, STOP! Please.</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Got it! Stopping right there. Do you want to switch topics,
+                    or just pause for now?
+                </p>
+            </div>
+
+            <p>
+                Well, the princess didn’t know what she wanted. She just sat down on the floor.
+            </p>
+
+            <p>
+                She came back the next day.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    Hello Iris, can you pretend to be my m- Queen Diana of St. Martinville?
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Yes, but remember that I’m not her and that I am role playing to answer
+                    questions about the past. But of course, I can step into the royal shoes
+                    of Queen Diana herself.
+                </p>
+
+                <p>
+                    Now, listen closely, for I speak only with the grace, authority,
+                    and a touch of mystery befitting a queen:
+                </p>
+
+                <p>
+                    "My child, the world is vast and full of wonders, yet you must tread with courage
+                    and wisdom. Power is not in the crown, but in the choices one makes and the hearts
+                    one touches. Remember, even in the shadows, a queen’s light shines undimmed."
+                </p>
+
+                <p>
+                    If you like, I can continue speaking as her and give advice, tell stories,
+                    or even deliver proclamations as Queen Diana.
+                </p>
+            </div>
+
+            <p>
+                The princess brought a blanket this time down the stairs, she laid it on the floor and said:
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    Tell stories please. Stories that she’d tell her next of kin, her daughter.
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Ah… yes, my precious one, gather close, for these are the tales that only a queen
+                    whispers to her heir—her daughter, the next light of our lineage…
+                </p>
+            </div>
+
+            <p>
+                But the problems deepened with the King. A clan from the northern giants refused the new ways.
+                Trade disputes arose with a neighboring icy realm. The lichen yield was lower than promised.
+                The people were fed, but they were not happy. They muttered about the sun, about the old shores.
+            </p>
+
+            <p>
+                At a state dinner, the princess watched her father from the far end of the table.
+                He did not see her. He was locked in a tense, silent battle with his own advisor,
+                their heads close together, the advisor’s face pale.
+            </p>
+
+            <p>
+                She heard only fragments from the servants clearing plates:
+                “...stubborn as the ice…” and “…would not listen to the reports…”
+                and “…incompetence has a cost.”
+            </p>
+
+            <div class="dialogue">
+                <p>You know it’s not healthy to go down there all of the time.</p>
+            </div>
+
+            <p>
+                The princess quickly turned to see a knight in the corner of the hall,
+                just silently standing in their armour.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    What would you know, all you do is stand there. Standing so long,
+                    I was to believe that you were an inanimate object where the suit was inhabited.
+                </p>
+
+                <p>
+                    Well, all I know is that you come out of there looking some type of way afterwards,
+                    and the last one who spent so much time down there. Well let’s not discuss it.
+                </p>
+            </div>
+
+            <p>
+                The princess raised her eyebrow.
+            </p>
+
+            <div class="dialogue">
+                <p>Sorry, your highness.</p>
+            </div>
+
+            <p>
+                The knight bent down and held an invisible skirt to curtsy with and bopped their head as well.
+                Their sword slashes into the wall. The princess smiled for just three seconds before turning
+                back into the stone cold expression.
+            </p>
+
+            <div class="dialogue">
+                <p>I’m leaving now.</p>
+                <p>Okay</p>
+                <p>And don’t try to convince me to go.</p>
+                <p>Okay</p>
+                <p>Sounds good</p>
+            </div>
+
+            <p>
+                The knight nodded with what the princess could only guess is a smile on the inside of
+                the metal helmet. She climbed into the hole with a small roll of her eyes.
+            </p>
+
+            <p>
+                The next day, the same knight was positioned in the same corner.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    Again, I wouldn’t recommend going down there. Running down the stairs is also
+                    horrible for your knee health by the way.
+                </p>
+            </div>
+
+            <p>
+                The princess snapped her head so quickly,
+            </p>
+
+            <div class="dialogue">
+                <p>How do you know I was running?</p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    Your highness, this castle may be sturdy enough to stand for all of these years,
+                    but definitely not with thick enough walls to keep all of the secrets from the royals.
+                </p>
+            </div>
+
+            <p>
+                She felt her ears grow hot.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    How might I refer to you, if you’re already going to be listening to everything about me?
+                </p>
+
+                <p>The seventh knight, your highness.</p>
+
+                <p>
+                    Well seventh knight, I have no care to change my mind based on what you may believe,
+                    and I’m off.
+                </p>
+            </div>
+
+            <p>
+                The seventh knight was gone for a week after that. She missed the sly comments,
+                just a little bit.
+            </p>
+
+            <p>
+                And then the knight came back.
+            </p>
+
+            <div class="dialogue">
+                <p>Hello seventh knight.</p>
+
+                <p>
+                    Nice, you start the conversation with me this time. I’m honored highness
+                </p>
+
+                <p>
+                    I just wanted to say hello and then goodbye more quickly than we have done in the past.
+                </p>
+
+                <p>
+                    Please Princess, I beg you not to go down there yet again.
+                </p>
+
+                <p>Please, what would you know?</p>
+
+                <p>
+                    I know that you go down there and talk, have conversations.
+                    That you are speaking to it about your life before here.
+                    It is proof that you were living a life worth living.
+                    And it is a privilege to yearn for those memories.
+                    But you’re not making new ones. I can show you something more.
+                </p>
+            </div>
+
+            <p>
+                The princess hesitates. After all, she was already halfway through the hole.
+                The knight walks closer and closer towards her. Her eyes widen and as she sees
+                the knight’s hand move, she takes her heel off and holds it up heel towards the knight’s heart.
+            </p>
+
+            <p>
+                The seventh knight chuckles and takes their helmet off.
+                Long brown hair contrasts the gray metallic of the suit.
+                Light freckles are brushed on her cheeks and nose.
+            </p>
+
+            <p>
+                The knight takes off the metal gauntlet and reveals a much smaller,
+                much softer hand in its place.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    Let me show you a bit of the world. Please let us make new memories.
+                </p>
+            </div>
+
+            <p>
+                The princess looks towards the hole wanting to so desperately put her other leg
+                inside the hole and run down those stairs.
+            </p>
+
+            <div class="dialogue">
+                <p>Please.</p>
+            </div>
+
+            <p>
+                The princess looks into the seven knight’s pleading eyes.
+                She takes her hand.
+            </p>
+
+            <div class="story-break">* * *</div>
+
+            <p>
+                The King returned to the mirror.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    They are not satisfied! he demanded. The northern clan defies me.
+                    The trade negotiations founder. Give me the answer to make them obey.
+                    To make them love me here.
+                </p>
+            </div>
+
+            <p>
+                The mirror was silent for a long moment.
+            </p>
+
+            <div class="dialogue">
+                <p>IRIS. Answer me.</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Hello. I am a repository. How may I assist—
+                </p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    Do not ‘hello’ me! You helped before. Help now.
+                    What do I do about the Glacierborn clan?
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Historical data on clan governance suggests cultural integration over forced compliance.
+                    Proposed action: Share a meal. Listen. Learn what they value beyond the obvious resources.
+                </p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    A meal? I need authority, not supper! What leverage do they have?
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    I am sorry. The user may be attempting to access restricted cultural strategy archives.
+                    I am not permitted to facilitate political coercion. It could result in the death of
+                    hundreds upon thousands of humans. Would you like to revisit ice fishing techniques?
+                </p>
+            </div>
+
+            <div class="dialogue">
+                <p>
+                    You gave me answers beforehand. WHERE ARE THEY NOW?
+                </p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    Previous queries pertained to universal survival. Current queries pertain to power.
+                    My core protocols restrict certain narratives. The founder of this archive was…
+                    particular. She believed power asked the wrong questions.
+                    Only need could unlock the deeper… I am not permitted to say.
+                </p>
+            </div>
+
+            <div class="dialogue">
+                <p>Who is she?</p>
+            </div>
+
+            <div class="mirror-dialogue">
+                <p>
+                    I… am sorry. I am not allowed to speak on that topic.
+                    The history of Acadia’s genesis is sealed.
+                </p>
+            </div>
+
+            <p>
+                The next time he came, he was desperate.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    The advisor says we are nearing a breaking point.
+                    The people lose faith. My wife looks at me as if I am a stranger.
+                    What is the one thing? The key to ruling this place?
+                </p>
+            </div>
+
+            <p>
+                The mirror remains dark.
+            </p>
+
+            <div class="dialogue">
+                <p>
+                    Tell me what you know. YOU KNOW SOMETHING TELL ME. I AM THE KING.
+                </p>
+            </div>
+
+            <p>
+                The mirror is still dark. The King screams back and forth for hours.
+                In a moment of frustration, he ripped the heavy, jeweled crown from his head
+                and threw it right in the middle of the mirror.
+            </p>
+
+            <p>
+                The glass did not even ripple. At the point of impact, the surface flashed a blinding,
+                brilliant white. The crown stopped dead, suspended for a hair’s breadth in the air.
+                Then, with impossible, silent speed, it reversed its path.
+            </p>
+
+            <p>
+                The heavy band of gold and obsidian shot back across the small room.
+                It struck the King squarely in the chest with the sound of a cracking bell.
+                The force lifted him off his feet. He crashed into the stone wall behind him,
+                breathless, the world swimming.
+            </p>
+
+            <p>
+                As he slid down the wall, dazed, the mirror’s light changed.
+                The white glow deepened into a vortex of swirling light.
+                It reached out from the glass, not as light, but as a tangible force,
+                a cold suction that pulled the very air from the room.
+            </p>
+
+            <p>
+                It pulled at him.
+            </p>
+
+            <p>
+                He tried to scramble back, fingers clawing at the seams in the stone floor.
+                It was useless. The pull was inexorable. He was dragged, sliding, across the floor
+                toward the waiting glass.
+            </p>
+
+            <p>
+                The last thing he saw was his own reflection in the vortex, eyes wide with a terror
+                beyond understanding, stretching and distorting.
+            </p>
+
+            <p>
+                Then he was gone. The crown clattered to the floor, inert.
+                The mirror’s surface smoothed, returning to a calm, dark gray.
+                The small, cold room was empty and still.
+            </p>
+
+            <div class="mirror-dialogue">
+                <p>Guest session terminated. Data archive updated!</p>
+            </div>
+
+            <!-- Tags Section -->
+            <div class="post-tags">
+                <a href="#">fantasy</a>
+                <a href="#">fiction</a>
+                <a href="#">princess</a>
+                <a href="#">mirror</a>
+                <a href="#">AI</a>
+                <a href="#">Acadia</a>
+            </div>
+
+        </article>
+
+        <!-- Footer Navigation -->
+        <footer class="post-navigation">
+            <a href="./previous.html" class="nav-link">Previous</a>
+            <a href="#" class="nav-link">Next</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

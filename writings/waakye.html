@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waakye</title>
+
+    <style>
+        /* --- 1. RESET & VARIABLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #fdfbf7;
+            --card-color: #eee8d5;
+            --text-color: #333333;
+            --accent-color: #555555;
+            --recipe-color: #e5ddc6;
+            --font-main: "Courier New", Courier, monospace;
+        }
+
+        /* --- 2. BODY LAYOUT --- */
+        body {
+            background-color: var(--bg-color);
+            font-family: var(--font-main);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- 3. MAIN CARD CONTAINER --- */
+        .blog-card {
+            background-color: var(--card-color);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            padding: 60px 80px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        /* --- 4. HEADER SECTION --- */
+        .post-icon {
+            font-size: 24px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            flex-wrap: wrap;
+            align-items: baseline;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .post-date {
+            color: var(--accent-color);
+        }
+
+        .post-title {
+            color: var(--text-color);
+        }
+
+        /* --- 5. CONTENT SECTION --- */
+        .post-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        /* --- 6. RECIPE CARD --- */
+        .recipe-card {
+            background-color: var(--recipe-color);
+            padding: 30px 35px;
+            margin: 0 0 45px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .recipe-card h2 {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .recipe-card h3 {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 20px 0 10px;
+        }
+
+        .recipe-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .recipe-card li {
+            margin-bottom: 6px;
+        }
+
+        .recipe-card li::before {
+            content: "— ";
+            color: var(--accent-color);
+        }
+
+        .recipe-note {
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* --- 7. STORY SECTIONS --- */
+        .story-section {
+            margin-bottom: 20px;
+        }
+
+        .story-divider {
+            text-align: center;
+            margin: 55px 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+        }
+
+        .section-label {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin: 50px 0 35px;
+        }
+
+        /* --- 8. DIALOGUE --- */
+        .dialogue {
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(85, 85, 85, 0.25);
+            margin-bottom: 25px;
+        }
+
+        .dialogue p {
+            margin-bottom: 12px;
+        }
+
+        /* --- 9. SPECIAL MOMENTS --- */
+        .emphasis {
+            font-weight: bold;
+        }
+
+        .ellipsis {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent-color);
+            letter-spacing: 5px;
+        }
+
+        /* --- 10. TAGS --- */
+        .post-tags {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-color);
+            text-decoration: underline;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .post-tags a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* --- 11. FOOTER / NAVIGATION --- */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .back-link {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
+            color: #000;
+        }
+
+        /* --- 12. RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .blog-card {
+                padding: 30px 20px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .post-header {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .recipe-card {
+                padding: 25px 20px;
+            }
+
+            .dialogue {
+                margin-left: 5px;
+                padding-left: 15px;
+            }
+
+            .post-content {
+                font-size: 0.9rem;
+                line-height: 1.75;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="blog-card">
+
+        <!-- Top Icon / Back Link -->
+        <div class="post-icon">
+            <a href="\blog.html" class="back-link" title="Back to Blog">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="post-date">Nov 24, 2025</span>
+                <span class="post-title">Special Equipment</span>
+                <span class="post-title">Dadesɛn Pot</span>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <article class="post-content">
+
+            <!-- =====================================================
+                 FIRST RECIPE
+                 ===================================================== -->
+
+            <section class="recipe-card">
+
+                <h2>Special Equipment</h2>
+
+                <p>
+                    Dadesɛn Pot
+                </p>
+
+                <h3>Ingredients</h3>
+
+                <ul>
+                    <li>2 cups Local brown rice or parboiled rice</li>
+                    <li>Palm Nut Oil</li>
+                    <li>Shea Butter Oil</li>
+                    <li>2 cups Dried black-eyed peas</li>
+                    <li>10-15 Dried sorghum leaves</li>
+                    <li>1 tsp Kanwe (Potash)</li>
+                    <li>Salt to taste</li>
+                    <li>Water</li>
+                </ul>
+
+            </section>
+
+
+            <!-- =====================================================
+                 FIRST STORY
+                 ===================================================== -->
+
+            <section class="story-section">
+
+                <p>
+                    “You see that poor girl’s neck.”
+                    I glance up at the hot sun almost blinding my view of her.
+                    She’s carrying two pans on her filled with food to sell.
+                    Her face is so young, Kayayo, she must be seventeen, maybe sixteen.
+                    Everyone buys clothes from Foss, but the way their bodies disappear
+                    under all of them is obvious that she’s eating too little and working too hard.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Hey! Bra ha.”
+                    </p>
+                </div>
+
+                <p>
+                    I wave out for her to come. She walks over, adjusting the aluminum pan on head,
+                    making sure she remains balanced.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I need someone to help me move rice bags later,” I said,
+                        which is true but not the whole truth.
+                    </p>
+
+                    <p>
+                        “What's your name?”
+                    </p>
+
+                    <p>
+                        “Ayishetu.”
+                    </p>
+                </div>
+
+                <p>
+                    I saw it in her face, but it did confirm she’s from the north.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Ma’am, how should I refer to you?”
+                    </p>
+
+                    <p>
+                        “My name is Afia, call me Mrs. Afia.”
+                    </p>
+
+                    <p>
+                        “Yes, Mrs. Afia.”
+                    </p>
+
+                    <p>
+                        “How old are you, girl?”
+                    </p>
+
+                    <p>
+                        “Eighteen.”
+                    </p>
+
+                    <p>
+                        “You're lying.”
+                    </p>
+                </div>
+
+                <p>
+                    The girl looks at me for a long moment. Then she shrugs, carefully,
+                    so the yams don't shift.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Sixteen. But I'll be seventeen soon.”
+                    </p>
+
+                    <p>
+                        “Here come help me. You can still get yourself some food even when you’re under eighteen.”
+                    </p>
+
+                    <p>
+                        “No thank you, ma’am I have my own food.”
+                    </p>
+                </div>
+
+                <p>
+                    Probably some biscuits in her pocket.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Hmm you sure, don’t you want something hot to eat.”
+                    </p>
+                </div>
+
+                <p>
+                    These girls are always in Makola Market, starving.
+                    It’s such a shame. And they’ve scared of everyone in the market and outside the market.
+                    I turn back to look at her, and her scrawny ass should definitely eat.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Help me carry the rice on tro tros to my place once we’re there.
+                        We can cook you something to eat.”
+                    </p>
+                </div>
+
+                <p>
+                    She seemed a bit nervous, but I knew and she knew that if she stayed here
+                    while it got too dark it’d be dangerous. She’d be hungry and weak,
+                    and an easy target for people in the streets.
+                </p>
+
+                <p>
+                    So she came.
+                </p>
+
+                <p>
+                    We sat on the tro tros, holding the rice tightly to our chest.
+                </p>
+
+                <p>
+                    We got to my family home and I sat her by the coalpot outside.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Okay, if we’re going to cook, we have to cook for the whole house.
+                        Now what would you like to make?”
+                    </p>
+
+                    <p>
+                        “Let’s make waakye!”
+                    </p>
+                </div>
+
+                <p>
+                    What the hell is waakye? She somehow already knows what I’m thinking
+                    because before I can ask she goes,
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “It’s a northern dish, it’s really good you know.
+                        It’s rice and beans.”
+                    </p>
+                </div>
+
+                <p>
+                    I chuckle,
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I think we can manage that”
+                    </p>
+                </div>
+
+                <p>
+                    She stands up, suddenly less tired.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Do you have sorghum leaves? Dried ones?”
+                    </p>
+
+                    <p>
+                        “Sorghum leaves?”
+                    </p>
+
+                    <p>
+                        “For the color. That's what makes it waakye.
+                        Otherwise it's just rice and beans.”
+                    </p>
+                </div>
+
+                <p>
+                    I found some dried sorghum leaves in the back of the pantry,
+                    left from my mother-in-law's last visit.
+                    She's northern too, from Tamale, and she left them here
+                    like a test I didn't know I was taking.
+                    When I hand them to Ayishetu, her whole face changes.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "These are good ones," she grins, turning them over in her hands.
+                        "My grandmother used to say the darker the leaf, the better the waakye."
+                    </p>
+
+                    <p>
+                        "Your grandmother taught you?"
+                    </p>
+
+                    <p>
+                        "She taught me everything. Before she died."
+                    </p>
+                </div>
+
+                <p>
+                    She says it like she’s talking about the weather.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "She said waakye is just starting to walk from the north down to the south,
+                        and now everyone eats it and forgets where it came from."
+                    </p>
+                </div>
+
+                <p>
+                    I watch her rinse the leaves. Her hands move like how my grandmother’s used to:
+                    quick, sure, no wasted motion. She's so young but her hands are already so old.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "You know," I say, "my mother-in-law is northern. Muslim.
+                        When I married her son, she looked at me like I was stealing something.
+                        A Ga woman, Christian, taking her boy."
+                    </p>
+                </div>
+
+                <p>
+                    I start sorting the beans, picking out stones.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        Ayishetu looks up from the leaves.
+                        "My boyfriend's mother is the same.
+                        She says I'm too young, that I'm just a Kayayo,
+                        that I'll never be enough for her son."
+                    </p>
+
+                    <p>
+                        She shrugs, but it's not casual.
+                    </p>
+
+                    <p>
+                        "I'm going back next month. My mother is sick.
+                        When I go back, we'll marry. She'll have to accept me then."
+                    </p>
+
+                    <p>
+                        "How old is this boyfriend?"
+                    </p>
+
+                    <p>
+                        "Twenty."
+                    </p>
+
+                    <p>
+                        "And he's good to you?"
+                    </p>
+                </div>
+
+                <p>
+                    She hesitates.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "He doesn't hit me. He works.
+                        When I'm tired, he doesn't complain that dinner is late."
+                    </p>
+                </div>
+
+                <p>
+                    She says it like she's listing qualifications for a job.
+                    Maybe she is.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "That's good," I don’t push further.
+                    </p>
+                </div>
+
+                <p>
+                    The beans are boiling now. Ayishetu adds some of the kanwe and the water changes color.
+                    She stirs, then steps back, letting me add the rice.
+                    We work without talking for a while.
+                    The evening is coming in, the sun is dropping behind the compound walls,
+                    and somewhere a neighbor is playing highlife on a radio.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "When you go back," I say, "are you scared?"
+                    </p>
+
+                    <p>
+                        "Of what?"
+                    </p>
+
+                    <p>
+                        "Of being a wife. Of being in the north. Of—"
+                    </p>
+                </div>
+
+                <p>
+                    I don't know how to say it. But I feel in my heart that something
+                    is not right with her situation.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "I've been scared since I came here," she says, not looking at me.
+                        "At least at home I'll be scared with people who know my name and my food."
+                    </p>
+                </div>
+
+                <p>
+                    The waakye finishes cooking. We plate it together, and she adds the gari
+                    on the side the way her grandmother showed her, and I fry eggs for the children,
+                    and for a little while the kitchen just smells like food.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Someday," I tell her as she eats,
+                        "when you have your own kitchen, you teach your daughter this.
+                        You tell her it came from the north. You tell her it's hers."
+                    </p>
+
+                    <p>
+                        Ayishetu nods, mouth full.
+                        "I will, Mrs. Afia."
+                    </p>
+                </div>
+
+                <p>
+                    She left the next morning, early, before the market woke up.
+                    I gave her some of the leftover waakye wrapped in newspaper
+                    and two of my old wrappers I don't wear anymore.
+                    She tried to refuse, but I told her to shut up and take them.
+                </p>
+
+                <p>
+                    I haven't seen her since.
+                    But sometimes I think about her in the north, in some man’s kitchen,
+                    making waakye with sorghum leaves and kanwe,
+                    and I hope she tells her daughter about the woman in Makola
+                    who taught her that it was hers all along.
+                </p>
+
+            </section>
+
+
+            <div class="story-divider">* * *</div>
+
+
+            <!-- =====================================================
+                 SECOND RECIPE
+                 ===================================================== -->
+
+            <section class="recipe-card">
+
+                <h2>Special Equipment</h2>
+
+                <p>
+                    Just a deep Pot
+                </p>
+
+                <h3>Ingredients</h3>
+
+                <ul>
+                    <li>2 cups Dried Black-eyed peas</li>
+                    <li>Palm Nut Oil</li>
+                    <li>Shea Butter Oil</li>
+                    <li>10 Dried Sorghum leaves</li>
+                    <li>1 tbsp Coconut oil or vegetable oil</li>
+                    <li>1/2 Red onion</li>
+                    <li>2 cups Local brown rice or parboiled rice</li>
+                    <li>3 cups Thai Jasmine rice</li>
+                    <li>1 tsp Kanwe (Potash)</li>
+                    <li>Salt to taste</li>
+                    <li>Water</li>
+                </ul>
+
+                <p class="recipe-note">
+                    And all of the fixings on the side!
+                    (avocado, fish, kelewele, wele, gari, shito, spaghetti)
+                </p>
+
+            </section>
+
+
+            <!-- =====================================================
+                 SECOND STORY
+                 ===================================================== -->
+
+            <section class="story-section">
+
+                <p>
+                    Okay, my clothes are pushed in the back closet, not the front.
+                    So when he gets here, his clothes and shoes go in the front closet
+                    and I don’t look like a slob.
+                    Okay cool, ummmmmm now what.
+                    Well, the goat is already thawing on the counter.
+                    I’ve already started boiling the rice and beans.
+                    Everything has a place.
+                    Even the book that is– actually, where is that book?
+                </p>
+
+                <div class="dialogue">
+                    <p>“Ding!”</p>
+                </div>
+
+                <p>
+                    I rush to the door, tying my apron along the way.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Hi, babe!”
+                    </p>
+                </div>
+
+                <p>
+                    I get a kiss on the cheek as Mark walks in.
+                    I look up into my eyes,
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Just a kiss on the cheek…
+                        I thought we were like boyfriend-girlfriend.”
+                    </p>
+                </div>
+
+                <p>
+                    He does that thing with his face where he's pretending to be annoyed
+                    but his eyes give him away.
+                    Then he picks up my chin and kisses me.
+                    Like really kisses me.
+                    He pulls away with this awful grin on his face.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Missed me that much, huh?"
+                    </p>
+                </div>
+
+                <p>
+                    He hands me the flowers in his left hand,
+                    and as I turn to put them in water,
+                    he starts to open the wine he bought.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “You know you don't have to bring wine every time.”
+                    </p>
+
+                    <p>
+                        “I know. But then what would I do with my hands while you cook?”
+                    </p>
+
+                    <p>
+                        “You could help me. Get better in the kitchen.”
+                    </p>
+                </div>
+
+                <p>
+                    He nods as we get closer to the kitchen and I smile as my perfectly
+                    pushed smells successfully worked their way to his nose.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Whatever is in the kitchen smells amazing, what is it?”
+                    </p>
+
+                    <p>
+                        “I told you yesterday, we’re making Waakye and some other dishes
+                        to eat along with it.”
+                    </p>
+
+                    <p>
+                        He smiles and nods,
+                        “Ahhhh I remember the Ghanaian rice dish.
+                        Anything I can do to help?”
+                    </p>
+
+                    <p>
+                        “Well, I need to make the stew and boil some eggs.
+                        Could you start cutting the onions and then after I put the eggs on
+                        I'll help you out.”
+                    </p>
+
+                    <p>
+                        “Of course.”
+                    </p>
+                </div>
+
+                <p>
+                    I've been wanting to talk to Mark about everything that's been going on.
+                    I just got into a Master's program and I've been fighting for not only scholarships,
+                    but also where I'm going to go.
+                    Obviously whatever is best in terms of money at the end,
+                    but I don't know if I want to move so far away from him.
+                    We've been already arguing a bit and—
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Hey honey! Can you come over here?”
+                    </p>
+
+                    <p>
+                        “Yea, what’s up.”
+                    </p>
+                </div>
+
+                <p>
+                    I put the eggs down and turn to see him holding an onion
+                    and just kinda looking at it.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Um, so for the onion, how do you want me to cut it.”
+                    </p>
+
+                    <p>
+                        "Just slices are fine, babe.
+                        Also I wanted to talk to you about–”
+                    </p>
+
+                    <p>
+                        “Wait, sorry to interrupt, just one thing.
+                        What does slices actually mean?
+                        Like orange slices?”
+                    </p>
+                </div>
+
+                <p>
+                    I was a little confused, but hey, not everyone has home training.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “No, like long strips you know.”
+                    </p>
+
+                    <p>
+                        “Got it! Alright tell me what you wanted to talk about.”
+                    </p>
+                </div>
+
+                <p>
+                    “Well, for all of the Master’s programs I applied to,
+                    I like two of them.
+                    And I’m trying to figure out–”
+                </p>
+
+                <p>
+                    I look down at Mark’s hands and he’s holding the onion,
+                    but he hasn’t peel the onion.
+                    However, he cut the onion with the peel.
+                </p>
+
+                <p>
+                    Shit, I still haven’t turned the eggs on.
+                    I turn around to turn the eggs to boil with some salt and then again.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Hey you know what Mark, I think I got it.”
+                    </p>
+
+                    <p>
+                        “Hm?”
+                    </p>
+
+                    <p>
+                        “It's funny, I saw that bread pudding in your fridge yesterday
+                        that you made for yourself, so I know you know how to use a kitchen.
+                        But you can't peel an onion?”
+                    </p>
+
+                    <p>
+                        He looks down for a bit and then bounces back up,
+                        “Ah okay, you know I’ll do what I do best.”
+                    </p>
+
+                    <p>
+                        I raise an eyebrow.
+                    </p>
+
+                    <p>
+                        “Drinking wine of course.”
+                    </p>
+                </div>
+
+                <p>
+                    I take my mom’s shito out of the fridge because I’m not even going to attempt that.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “You want wine?”
+                    </p>
+
+                    <p>
+                        “No thanks.”
+                    </p>
+                </div>
+
+                <p>
+                    He leans against the counter while I'm running between the goat
+                    and the stew and the eggs.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “So what were you saying about the Master's programs?”
+                    </p>
+                </div>
+
+                <p>
+                    I wait for him to offer to help again.
+                    He doesn't.
+                    Just sips his wine.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I got into BU and Michigan.”
+                    </p>
+
+                    <p>
+                        “Both? That's great.”
+                    </p>
+
+                    <p>
+                        “Michigan's offering more money.”
+                    </p>
+
+                    <p>
+                        “So go to Michigan.”
+                    </p>
+
+                    <p>
+                        “Mark, it’s like a twelve-hour drive.”
+                    </p>
+                </div>
+
+                <p>
+                    I should obviously go to Michigan.
+                    Yes, I’m still figuring it out, but if that’s the best choice,
+                    that’s what I’m doing.
+                    I just want him to say something, be a little sad or something.
+                    Tell me to go and that he’ll be fighting or something.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “People do long distance.”
+                    </p>
+                </div>
+
+                <p>
+                    I stir the stew.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “People also break up doing long distance.”
+                    </p>
+
+                    <p>
+                        “Amber, are you really worried about that?"
+                    </p>
+
+                    <p>
+                        “Aren’t you?”
+                    </p>
+                </div>
+
+                <p>
+                    He shrugs.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I mean, we'll figure it out.
+                        You're smart. I'm—”
+                    </p>
+                </div>
+
+                <p>
+                    He gestures vaguely.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "I'm here."
+                    </p>
+
+                    <p>
+                        “Could you set the table?”
+                    </p>
+                </div>
+
+                <p>
+                    He looks a little confused, but still goes,
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Yeah, I’m on it.”
+                    </p>
+                </div>
+
+                <p>
+                    The thing is, Mark is nice.
+                    He really is.
+                    He shows up on time, he brings wine,
+                    he tells me I'm smart and beautiful and all the things men are supposed to say.
+                    But I'm in the kitchen doing everything and he can't peel an onion
+                    and when I try to talk about the future he says we'll figure it out
+                    like the future is a surprise party and not something you have to build with your hands.
+                </p>
+
+                <p>
+                    He puts his phone down and starts grabbing plates from the wrong cabinet.
+                    I don't correct him.
+                    If the plates don't match, they don't match.
+                    I'm too tired.
+                </p>
+
+                <p>
+                    We eat.
+                    The waakye is good.
+                    The stew is a little burnt but whatever.
+                    Mark says “this is great, babe” with his mouth full and I say thanks
+                    and we don't talk about Michigan, Boston, or anything academic again.
+                </p>
+
+                <p>
+                    After dinner, I get up to do the dishes because I hate going to bed with a dirty kitchen
+                    and he’d rather relax before cleaning up.
+                    I eventually joined him on the couch and wondered when having to ask became the whole relationship.
+                </p>
+
+            </section>
+
+
+            <div class="story-divider">* * *</div>
+
+
+            <!-- =====================================================
+                 THIRD RECIPE
+                 ===================================================== -->
+
+            <section class="recipe-card">
+
+                <h2>Special Equipment</h2>
+
+                <p>
+                    Rice Cooker
+                </p>
+
+                <h3>Ingredients</h3>
+
+                <ul>
+                    <li>2 cups Dried Black-eyed peas</li>
+                    <li>1 can (15 oz) Black-eyed peas (rinsed)</li>
+                    <li>Kanwe</li>
+                    <li>1/2 tsp Baking soda</li>
+                    <li>Palm Nut Oil</li>
+                    <li>Shea Butter Oil</li>
+                    <li>Hibiscus Tea Leaves</li>
+                    <li>1 tbsp Coconut oil or vegetable oil</li>
+                    <li>1/2 Red Onion</li>
+                    <li>3 cups Thai Jasmine rice</li>
+                    <li>2 cups Basmati or Long-grain white rice</li>
+                    <li>1 tsp Better Than Bouillon (Beef or Vegetable base)</li>
+                    <li>3 cups Water or Beef stock (for a darker color)</li>
+                    <li>1 tsp Onion powder &amp; Garlic powder</li>
+                    <li>Salt to taste</li>
+                    <li>Water</li>
+                    <li>Plantains (to fry in oil and salt)</li>
+                </ul>
+
+            </section>
+
+
+            <!-- =====================================================
+                 THIRD STORY
+                 ===================================================== -->
+
+            <section class="story-section">
+
+                <p>
+                    You know how much you can make in a rice cooker.
+                    Rice of course, but ramen, soup, cake– well actually maybe not soup.
+                    I’m crouched in front of my laptop right now trying to write this thesis
+                    and it’s going to be the end of me.
+                    Somehow I begged to be in the PhD program,
+                    paid the horrendous application fee, kissed way too many asses,
+                    to now be a tenure professor.
+                    And it’s hell everytime I hit my alarm,
+                    but hey at least my saving grace is this rice cooker.
+                </p>
+
+                <p>
+                    I put the beans in the rice cooker, close the lid,
+                    and get on the green line.
+                    Knowing that my rice cooker won’t do me any wrong
+                    and Donovan will finish it up in the morning.
+                    Eliot…Chestnut Hill… Fenway!
+                    I run off and just barely make it to my office for my 9:30.
+                    I swear I thought getting older meant I’d have more control over my life.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        Knock Knock
+                    </p>
+
+                    <p>
+                        “Professor Lomotey, it’s great that I caught you at this time.”
+                    </p>
+
+                    <p>
+                        “Professor Smith. It’s nice to see you as well.
+                        I actually have a meeting in ten, so if we could–”
+                    </p>
+
+                    <p>
+                        “Oh don’t worry this won’t be long”
+                    </p>
+                </div>
+
+                <p>
+                    Ugh this guy.
+                    It’s going to be some new boring ass thing he wants me to do.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “So we need to lead a new faculty search to find a new Professor
+                        of African American studies, and wasn’t hoping you can be on the committee
+                        to help us out.”
+                    </p>
+
+                    <p>
+                        “Well, I’m a little bit unsure why my voice would be that valuable
+                        as a Biophysics Professor.”
+                    </p>
+
+                    <p>
+                        “We want to have professors from all departments and give a whole circle
+                        view on people. Diversity of perspective, you know.”
+                    </p>
+                </div>
+
+                <p>
+                    I gave my best professional smile,
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I’ll think about Professor Smith, but I have a student walking in
+                        at any second. If you could please excuse us.”
+                    </p>
+                </div>
+
+                <p>
+                    He leaves and Kwabena walks straight in.
+                </p>
+
+                <p>
+                    He's a first-year PhD student, Ghanaian, tall and usually a little too put-together
+                    (mamas boy), but today he's got that look.
+                    The one that means he hasn't slept.
+                    Maybe it’s getting to that point of the semester.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Dr. Lomotey, I wanted to talk with you about my thesis
+                        and wanted some pointers on… communication.”
+                    </p>
+
+                    <p>
+                        “Of course. Sit down.”
+                    </p>
+
+                    <p>
+                        "My PI," he starts.
+                        Then stops.
+                        "I don't know. Maybe I'm overthinking it."
+                    </p>
+
+                    <p>
+                        "Tell me anyway."
+                    </p>
+
+                    <p>
+                        "She keeps my drafts for weeks.
+                        Last one, four weeks.
+                        And when I got it back, all her comments were about the literature review.
+                        Not the data.
+                        The literature review."
+                    </p>
+                </div>
+
+                <p>
+                    He rubs his eyes.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "She wants me to expand it.
+                        Again.
+                        I already did it twice."
+                    </p>
+
+                    <p>
+                        "Expand it how?"
+                    </p>
+
+                    <p>
+                        "More background.
+                        More context.
+                        She says my topic is 'ambitious'
+                        and I need to situate it better before anyone will take it seriously.
+                        Meanwhile my lab mate turned in his first draft and got notes back in three days.
+                        His topic is basically an extension of her old research, so."
+                    </p>
+                </div>
+
+                <p>
+                    He shrugs.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Maybe I just didn't explain mine well enough."
+                    </p>
+
+                    <p>
+                        "Your topic is the genetic markers one?
+                        The West African population study?"
+                    </p>
+
+                    <p>
+                        “Yeah.
+                        I thought she was into it when I applied.
+                        She said it was innovative.
+                        Now every meeting she's like 'this is great but have you considered broadening it'
+                        and I don't even know what that means anymore."
+                    </p>
+                </div>
+
+                <p>
+                    He leans back.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “I don't want to switch.
+                        This is my thing.
+                        But I'm already behind.
+                        It's only my first year and I feel like I'm crawling and everyone else is running.
+                        And if I keep going at this pace, by the time I get to my dissertation phase
+                        I'll have burned through half my funding just on revisions.
+                        And you know, as an international student...
+                        I can't just fail.
+                        If I lose my funding, I lose my visa.
+                        I can't push back because I don't have a safety net here.”
+                    </p>
+
+                    <p>
+                        "Have you talked to her about the timeline?"
+                    </p>
+
+                    <p>
+                        "I tried.
+                        Last week.
+                        I said I was worried about falling behind, and she said—"
+                    </p>
+                </div>
+
+                <p>
+                    He pauses, looking for the words.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "She said 'sometimes international students need a little more time
+                        to adjust to our expectations.'"
+                    </p>
+                </div>
+
+                <p>
+                    He says it flat, like he's still trying to figure out if it was an insult or not.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "I grew up speaking English.
+                        I did my masters here.
+                        What does 'adjust' even mean?"
+                    </p>
+                </div>
+
+                <p>
+                    Professor Kostan always got something wrong with students.
+                    Always strict and sometimes I wonder if she’s decided who you are
+                    and she's grading you against that instead of the page in front of her.
+                    But I don't say that.
+                    Not yet.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "You're not crazy," I say.
+                    </p>
+
+                    <p>
+                        "Okay, so what do I do?"
+                    </p>
+
+                    <p>
+                        "First, document everything.
+                        Dates you submit, dates you get feedback,
+                        how long she takes, what kind of comments she gives.
+                        Second, next time she says 'expand this,'
+                        ask her specifically what's missing.
+                        Make her name it.
+                        If she can't, push back.
+                        Politely.
+                        But push."
+                    </p>
+
+                    <p>
+                        "She's going to hate me."
+                    </p>
+
+                    <p>
+                        "She might.
+                        Or she might respect you more.
+                        Either way, you'll know where you stand."
+                    </p>
+
+                    <p>
+                        He nods slowly.
+                        "My mum keeps telling me to pray about it."
+                    </p>
+
+                    <p>
+                        "Prayers are good.
+                        Documentation is better."
+                    </p>
+
+                    <p>
+                        He almost laughs.
+                        “Thanks, I’ll try.”
+                    </p>
+                </div>
+
+                <p>
+                    He stands up to leave, and I go
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        “Also Kwabeana, sleep and shower if you got the time too.”
+                    </p>
+                </div>
+
+                <p>
+                    He walks out a little embarrassed I might add,
+                    but someone had to tell him.
+                </p>
+
+                <div class="ellipsis">
+                    …
+                </div>
+
+                <p>
+                    I walk into the house, slide off my heels, collapse on the couch.
+                    Donovan walks in from the kitchen.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Uh oh.
+                        You didn't even make it to the bedroom."
+                    </p>
+                </div>
+
+                <p>
+                    I just look at him.
+                    And then turn back to close my eyes.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Well, I made you a plate.
+                        But I gotta tell you something first."
+                    </p>
+
+                    <p>
+                        I open one eye.
+                        "What."
+                    </p>
+
+                    <p>
+                        "The plantains you fried this morning."
+                    </p>
+
+                    <p>
+                        "Donovan.
+                        Don’t tell me."
+                    </p>
+
+                    <p>
+                        "I ate them."
+                    </p>
+
+                    <p>
+                        "All of them?"
+                    </p>
+
+                    <p>
+                        "Every last one.
+                        But I'm frying more right now."
+                    </p>
+                </div>
+
+                <p>
+                    He gestures toward the kitchen.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "I didn't leave my woman plantain-less."
+                    </p>
+
+                    <p>
+                        "You better not."
+                    </p>
+                </div>
+
+                <p>
+                    He hands me the plate.
+                    Waakye, stew, egg, and a sad empty spot where the plantains should be.
+                    I look at it.
+                    Then at him.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "You know, Grace.
+                        In Jamaica, we just call this Rice and Peas."
+                    </p>
+
+                    <p>
+                        "Don't start with me."
+                    </p>
+
+                    <p>
+                        "I'm just saying."
+                        He grins.
+                        "It's basically the same—"
+                    </p>
+
+                    <p>
+                        "It is not the same and you know it."
+                    </p>
+
+                    <p>
+                        "Okay, okay."
+                        He heads back to flip the plantains.
+                        "I respect the ancestors.
+                        I respect the rice cooker.
+                        I respect—"
+                    </p>
+
+                    <p>
+                        "Shut up."
+                        I roll my eyes and chuckle.
+                    </p>
+
+                    <p>
+                        "You shut up.
+                        Eat your waakye."
+                    </p>
+                </div>
+
+                <p>
+                    He comes back, slides fresh plantains onto my plate,
+                    steals one right back off.
+                    I let him.
+                    The TV's on, some show neither of us is watching.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "Are you going to say yes to that committee that the guy
+                        is badgering you about," he says.
+                    </p>
+
+                    <p>
+                        "I haven't decided."
+                    </p>
+
+                    <p>
+                        "You have.
+                        Some man says 'diversity of perspective'
+                        and you're already clearing your schedule."
+                    </p>
+                </div>
+
+                <p>
+                    I don't answer.
+                    He's not wrong.
+                </p>
+
+                <div class="dialogue">
+                    <p>
+                        "You know you're allowed to say no, right?
+                        Just do your job, come home, eat my perfect plantains."
+                    </p>
+
+                    <p>
+                        "Your plantains?
+                        I fried the first batch."
+                    </p>
+
+                    <p>
+                        "And I ate them.
+                        That's teamwork."
+                        He kisses my forehead.
+                        "For real, Grace.
+                        Maybe tomorrow do one less thing.
+                        Just one."
+                    </p>
+
+                    <p>
+                        "Maybe."
+                    </p>
+
+                    <p>
+                        "I'll take maybe."
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Tags -->
+            <div class="post-tags">
+                <a href="#">waakye</a>
+                <a href="#">Ghana</a>
+                <a href="#">food</a>
+                <a href="#">family</a>
+                <a href="#">relationships</a>
+                <a href="#">academia</a>
+                <a href="#">fiction</a>
+            </div>
+
+        </article>
+
+        <!-- Footer Navigation -->
+        <footer class="post-navigation">
+            <a href="./chimera_ant.html" class="nav-link">Previous</a>
+            <a href="#" class="nav-link">Next</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,137 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Esther Aduamah</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writings — Esther Aduamah</title>
+  <link rel="icon" type="image/jpeg" href="funphoto.jpg" />
 
-    </head>
-<script>
-    (function () {
-        try {
-            const saved = localStorage.getItem('theme');
-            const systemPrefersDark =
-                window.matchMedia &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            const isDark = saved
-                ? saved === 'dark'
-                : systemPrefersDark;
-
-            if (isDark) {
-                document.documentElement.classList.add('dark-theme');
-            } else {
-                document.documentElement.classList.remove('dark-theme');
-            }
-        } catch (e) {
-            // ignore errors
-        }
-    })();
-</script>
-
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-    <header>
-        <div class="logo"><a href="index.html">esther aduamah</a></div>
-        <nav>
-            <a href="experience.html" class="nav-link">projects</a>
-            <a href="about.html" class="nav-link">about</a>
-            <a href="skills.html" class="nav-link">skills</a>
-            <a href="blog.html" class="nav-link active">blog</a>
-            <a href="contact.html" class="nav-link">contact</a>
-            <button id="theme-toggle">🌙</button>
-        </nav>
+  <div class="newspaper-shell">
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1><a href="index.html">Esther Aduamah</a></h1>
     </header>
 
-    <div class="content-wrapper">
-        <section class="page-section scroll-fade-in">
-            
-            <div class="page-title-block">
-                <h1>writing & thoughts</h1>
-                <span>creative pieces & science communication</span>
-            </div>
-
-            <div class="blog-container">
-                
-                <div class="blog-column">
-                    <h2>creative writing</h2>
-                    
-                    <div class="article-item">
-                        <a href="writings/iron_heart.html" class="article-title">mirror mirror on the wall </a>
-                        <div class="article-meta">january 22, 2026</div>
-                        <p class="article-desc">bad conversations in the mirror</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/iron_heart.html" class="article-title">iron heart</a>
-                        <div class="article-meta">december 15, 2024</div>
-                        <p class="article-desc">a poem about an iron.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/queenpin.html" class="article-title">queenpin</a>
-                        <div class="article-meta">october 2, 2024</div>
-                        <p class="article-desc">a short story about Margo.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/chimera_ant.html" class="article-title">Chimera Ant</a>
-                        <div class="article-meta">august 10, 2024</div>
-                        <p class="article-desc">speculative fiction about what happens to our data when we're gone, and who gets to keep the keys.</p>
-                    </div>
-                </div>
-
-                <div class="blog-column">
-                    <h2>science communication</h2>
-                    
-                    <div class="article-item">
-                        <a href="writings/kim_mccall.html" class="article-title">Strategies to Improve Sleep within highly dense College Campus</a>
-                        <div class="article-meta">April 20, 2026</div>
-                        <p class="article-desc">An explanatory piece on the importance of apoptosis research using fruit flies and its implications for human health and disease.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/kim_mccall.html" class="article-title">Dr. Kim McCall: Unraveling Programmed Cell Death in Drosophila</a>
-                        <div class="article-meta">February 20, 2025</div>
-                        <p class="article-desc">An explanatory piece on the importance of apoptosis research using fruit flies and its implications for human health and disease.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/optogenetics.html" class="article-title">Optogenetic Manipulation to Enhance Crop Growth and Water Efficiency</a>
-                        <div class="article-meta">February 1, 2025</div>
-                        <p class="article-desc">Explaining how light-based genetic tools are being developed to engineer plants for a more sustainable and drought-resistant agricultural future.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/microbiome.html" class="article-title">Microbes: A Whole New World</a>
-                        <div class="article-meta">december 10, 2024</div>
-                        <p class="article-desc">A look at the latest discoveries in the microbiome and their profound impact on human and planetary health.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/menthea.html" class="article-title">Breaking the Cycle: Trauma and Mental Health Barriers in the Black Community</a>
-                        <div class="article-meta">november 30, 2024</div>
-                        <p class="article-desc">Examining the structural and cultural challenges to accessing and receiving effective mental healthcare.</p>
-                    </div>
-
-                    <div class="article-item">
-                        <a href="writings/tree_stages.html" class="article-title">The Nature of Competition: Because Not All Trees Are Meant to Share a Stage</a>
-                        <div class="article-meta">november 15, 2024</div>
-                        <p class="article-desc">A science-meets-philosophy essay on ecological competition and resource management.</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-        </section>
+    <!-- Auto-Updating Dateline -->
+    <div class="dateline">
+      <span id="live-time" class="dateline-left">--:--</span>
+      <span id="live-date" class="dateline-center">LOADING DATE...</span>
+      <span class="dateline-right">WRITINGS</span>
     </div>
 
-    <footer>
-        <span class="copyright">Esther Aduamah - © 2026</span>
-        <span class="love-note">built with code, Oreos, & lots of Cartoon Network &lt;3</span>
-    </footer>
-    <script src="script.js"></script>
+    <!-- Secondary Navigation & Category Filter Bar -->
+    <nav class="blog-subbar" aria-label="Blog Navigation and Filters">
+      <div class="blog-subbar-left">
+        <a href="index.html" class="blog-back-link">&larr; Front Page</a>
+        <div class="blog-filter-group">
+          <button type="button" class="blog-filter-btn active" onclick="filterBlogPosts('all', this)">All</button>
+          <button type="button" class="blog-filter-btn" onclick="filterBlogPosts('creative', this)">Creative Writing</button>
+          <button type="button" class="blog-filter-btn" onclick="filterBlogPosts('scicomm', this)">Science Communication</button>
+        </div>
+      </div>
+
+      <div class="bio-links" style="border-bottom: none; margin-bottom: 0; padding: 0;">
+        <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+        <a href="blog.html" class="text-nav-link">Blog</a>
+        <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+        <span class="social-icon-group">
+          <a
+            href="https://www.linkedin.com/in/esther-aduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/eaduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+            </svg>
+          </a>
+          <button
+            type="button"
+            class="icon-link-btn"
+            onclick="copyEmail(this)"
+            aria-label="Copy email estheraduamah1@gmail.com"
+            title="Copy estheraduamah1@gmail.com"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+          </button>
+        </span>
+      </div>
+    </nav>
+
+    <!-- Broadsheet Two-Column Blog Layout -->
+    <main class="blog-layout">
+      <!-- Left Main Column: Tab-Specific Lead Essay + Stories List -->
+      <section class="blog-main-col">
+
+        <!-- Lead Essay: All -->
+        <article class="blog-feature-article" data-tab-lead="all">
+          <p class="blog-kicker">Lead Essay &middot; Human-Centered AI</p>
+          <h2 class="blog-headline">Designing Assistive AI Without Eroding Human Agency</h2>
+          <p class="blog-byline">By Esther Aduamah &middot; Boston, MA &middot; Notes from the Human-Centered Computing Lab</p>
+
+          <div class="blog-body">
+            <p>
+              When technologists design tools for older adults, there is a quiet temptation to equate helpfulness with full automation&mdash;to strip away decisions until a button simply does the task on the user&rsquo;s behalf. Yet across months of co-design workshops around digital patient portals, participants repeatedly pushed back against tools that tried to think for them.
+            </p>
+            <p>
+              One participant phrased the tension with unforgettable clarity: &ldquo;Should I use this or my mind?&rdquo; That single question reframed how our lab thinks about multimodal wearable assistants. Good scaffolding lowers administrative friction&mdash;translating clinical jargon or orienting attention&mdash;while leaving judgment, memory, and agency firmly in the user&rsquo;s hands.
+            </p>
+            <p>
+              <em>Placeholder dispatch &mdash; replace or expand this essay with your own writing whenever you&rsquo;re ready.</em>
+            </p>
+          </div>
+        </article>
+
+        <!-- Lead Story: Creative Writing (Chimera Ant) -->
+        <article class="blog-feature-article" data-tab-lead="creative" style="display: none;">
+          <p class="blog-kicker">Featured Story &middot; Creative Writing</p>
+          <h2 class="blog-headline">Chimera Ant</h2>
+          <p class="blog-byline">By Esther Aduamah &middot; August 10, 2024 &middot; Speculative Fiction &amp; Memory</p>
+
+          <div class="blog-body">
+            <p>
+              For once in my prepubescent life, I wished I had put on some deodorant. My sweat is painting some Picasso designs on my underarms. I don&rsquo;t know who would put children in a smothering hot car on the equator, but somehow, we were sitting in there. Even the ants on the car floor are dying from the heat.
+            </p>
+            <p>
+              &ldquo;When is Rosemary and Aunt Sister be back?&rdquo; Junior asks (yes, that&rsquo;s her real name; life has a way of working that way when you&rsquo;re the youngest sister, and your parents stopped being creative with names after child five).
+            </p>
+            <p>
+              &ldquo;I think in a half hour or so. Rosemary broke some needles so she&rsquo;s gotta get some new needles,&rdquo; I replied. Raph nods.
+            </p>
+            <p>
+              <a href="writings/chimera_ant.html" class="blog-back-link">Continue Reading &rarr;</a>
+            </p>
+          </div>
+        </article>
+
+        <!-- Lead Profile: Science Communication -->
+        <article class="blog-feature-article" data-tab-lead="scicomm" style="display: none;">
+          <p class="blog-kicker">Featured Profile &middot; Science Communication</p>
+          <h2 class="blog-headline">Dr. Kim McCall: Unraveling Programmed Cell Death in Drosophila</h2>
+          <p class="blog-byline">By Esther Aduamah &middot; February 20, 2025 &middot; Developmental Biology &amp; Neurobiology</p>
+
+          <div class="blog-body">
+            <p>
+              Imagine dedicating 25 years to unraveling the mysteries of developmental biology, and still going strong even when you&rsquo;re not feeling your best. That&rsquo;s Professor Dr. Kim McCall for you, a biology professor (who used to be the chair of biology!) at Boston University who has spent over two decades advancing our understanding of programmed cell death (PCD) and cell clearance. When I had the chance to talk to her, she was under the weather, but her passion and dedication shone through, reminding us that even the most accomplished scientists are, after all, human.
+            </p>
+            <p>
+              Her interest in <em>Drosophila</em> (fruit flies) actually started way back in high school during an AP biology class. That spark stayed with her through college, where she got involved in a <em>Drosophila</em> genetics lab. Later, she joined the Jan lab at UCSF, where she dove deeper into fly genetics and the study of the nervous system. It was there that she realized how powerful <em>Drosophila</em> could be for studying neurobiology, something that&rsquo;s remained a focus throughout her career.
+            </p>
+            <p>
+              <a href="writings/kim_mccall.html" class="blog-back-link">Read Full Piece &rarr;</a>
+            </p>
+          </div>
+        </article>
+
+        <div class="section-divider-header">
+          <h2>Selected Writings</h2>
+        </div>
+
+        <!-- Science Communication Stories -->
+        <article class="blog-dispatch-card" data-category="scicomm">
+          <p class="blog-kicker">Science Communication &middot; April 20, 2026</p>
+          <h3 class="blog-dispatch-title">Strategies to Improve Sleep within Highly Dense College Campus</h3>
+          <p class="blog-dispatch-excerpt">
+            An explanatory piece on the importance of sleep hygiene in high-stress academic environments.
+          </p>
+          <a href="writings/sleep_campus.html" class="blog-back-link">Read Piece &rarr;</a>
+        </article>
+
+        <!-- Creative Writing Stories -->
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; January 22, 2026</p>
+          <h3 class="blog-dispatch-title">Waakye</h3>
+          <p class="blog-dispatch-excerpt">
+            A short reflective piece on food, memory, and home.
+          </p>
+          <a href="writings/waakye.html" class="blog-back-link">Read Story &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; January 22, 2026</p>
+          <h3 class="blog-dispatch-title">Test Taking</h3>
+          <p class="blog-dispatch-excerpt">
+            Standardized testing sucks.
+          </p>
+          <a href="writings/test_take.html" class="blog-back-link">Read Story &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; January 22, 2026</p>
+          <h3 class="blog-dispatch-title">Mirror Mirror on the Wall</h3>
+          <p class="blog-dispatch-excerpt">
+            Bad conversations in the mirror.
+          </p>
+          <a href="writings/mirror.html" class="blog-back-link">Read Story &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="scicomm">
+          <p class="blog-kicker">Science Communication &middot; February 20, 2025</p>
+          <h3 class="blog-dispatch-title">Dr. Kim McCall: Unraveling Programmed Cell Death in Drosophila</h3>
+          <p class="blog-dispatch-excerpt">
+            An explanatory piece on the importance of apoptosis research using fruit flies and its implications for human health and disease.
+          </p>
+          <a href="writings/kim_mccall.html" class="blog-back-link">Read Piece &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="scicomm">
+          <p class="blog-kicker">Science Communication &middot; February 1, 2025</p>
+          <h3 class="blog-dispatch-title">Optogenetic Manipulation to Enhance Crop Growth</h3>
+          <p class="blog-dispatch-excerpt">
+            Explaining how light-based genetic tools are being developed to engineer plants for a more sustainable and drought-resistant agricultural future.
+          </p>
+          <a href="writings/optogenetics.html" class="blog-back-link">Read Piece &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; December 15, 2024</p>
+          <h3 class="blog-dispatch-title">Iron Heart</h3>
+          <p class="blog-dispatch-excerpt">
+            A poem about an iron.
+          </p>
+          <a href="writings/iron_heart.html" class="blog-back-link">Read Poem &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="scicomm">
+          <p class="blog-kicker">Science Communication &middot; December 10, 2024</p>
+          <h3 class="blog-dispatch-title">Microbes: A Whole New World</h3>
+          <p class="blog-dispatch-excerpt">
+            A look at the latest discoveries in the microbiome and their profound impact on human and planetary health.
+          </p>
+          <a href="writings/microbiome.html" class="blog-back-link">Read Piece &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="scicomm">
+          <p class="blog-kicker">Science Communication &middot; November 30, 2024</p>
+          <h3 class="blog-dispatch-title">Breaking the Cycle: Trauma and Mental Health Barriers</h3>
+          <p class="blog-dispatch-excerpt">
+            Examining the structural and cultural challenges to accessing and receiving effective mental healthcare.
+          </p>
+          <a href="writings/menthea.html" class="blog-back-link">Read Piece &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; October 2, 2024</p>
+          <h3 class="blog-dispatch-title">Queenpin</h3>
+          <p class="blog-dispatch-excerpt">
+            A short story about Margo.
+          </p>
+          <a href="writings/queenpin.html" class="blog-back-link">Read Story &rarr;</a>
+        </article>
+
+        <article class="blog-dispatch-card" data-category="creative">
+          <p class="blog-kicker">Creative Writing &middot; August 10, 2024</p>
+          <h3 class="blog-dispatch-title">Chimera Ant</h3>
+          <p class="blog-dispatch-excerpt">
+            Speculative fiction about what happens to our data when we&rsquo;re gone, and who gets to keep the keys.
+          </p>
+          <a href="writings/chimera_ant.html" class="blog-back-link">Read Story &rarr;</a>
+        </article>
+      </section>
+
+      <!-- Right Sidebar: Editorial Note & Favorite Reads Shelf -->
+      <aside class="blog-side-col">
+        <div class="blog-side-note">
+          <span class="editorial-box-label">About This Column</span>
+          A space for creative writing, personal essays, and science communication&mdash;exploring memory, everyday life, and the biology and human stories behind research.
+        </div>
+
+        <div class="section-divider-header">
+          <h2>Favorite Reads &amp; Reference Shelf</h2>
+        </div>
+
+        <ul class="blog-reading-list">
+          <!-- Creative Writing Shelf (shown on Creative Writing & All) -->
+          <li data-shelf-category="creative">
+            <strong>The Mark of Athena</strong> &mdash; Rick Riordan<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Mythology, ensemble questing, and high-stakes character dynamics.</span>
+          </li>
+          <li data-shelf-category="creative">
+            <strong>Words on Bathroom Walls</strong> &mdash; Julia Walton<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Intimate first-person voice navigating mental health, humor, and identity.</span>
+          </li>
+          <li data-shelf-category="creative">
+            <strong>Scythe</strong> &mdash; Neal Shusterman<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Speculative worldbuilding on mortality, ethics, and human agency.</span>
+          </li>
+
+          <!-- Science Communication Shelf (shown on Science Communication & All) -->
+          <li data-shelf-category="scicomm">
+            <strong>The Color of Law</strong> &mdash; Richard Rothstein<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Historical context for geospatial redlining &amp; urban health disparities.</span>
+          </li>
+          <li data-shelf-category="scicomm">
+            <strong>What Can a Body Do?: How We Meet the Built World</strong> &mdash; Sara Hendren (Hardcover)<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Design, disability, and how everyday objects adapt to diverse human bodies.</span>
+          </li>
+          <li data-shelf-category="scicomm">
+            <strong>The Icepick Surgeon</strong> &mdash; Sam Kean<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Narrative science history exploring obsession, ethics, and rogue inquiry.</span>
+          </li>
+          <li data-shelf-category="scicomm">
+            <strong>The Ghost Map: The Story of London&rsquo;s Most Terrifying Epidemic&mdash;and How It Changed Science, Cities, and the Modern World</strong> &mdash; Steven Johnson (Riverhead Trade)<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">Epidemiological detective storytelling across public health and urban design.</span>
+          </li>
+          <li data-shelf-category="scicomm">
+            <strong>Cooked</strong> &mdash; Michael Pollan (Penguin Books)<br />
+            <span style="color: var(--muted); font-size: 0.82rem;">The chemistry, microbiology, and cultural craft behind everyday transformation.</span>
+          </li>
+        </ul>
+      </aside>
+    </main>
+  </div>
+
+  <script src="site.js"></script>
 </body>
 </html>

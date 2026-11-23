@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies and Life Outside the Lab | Esther Aduamah</title>
+  <link rel="icon" type="image/jpeg" href="funphoto.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="newspaper-shell">
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1><a href="index.html">Esther Aduamah</a></h1>
+    </header>
+
+    <!-- Auto-Updating Dateline -->
+    <div class="dateline">
+      <span id="live-time" class="dateline-left">--:--</span>
+      <span id="live-date" class="dateline-center">LOADING DATE...</span>
+      <span class="dateline-right">OFF THE CLOCK &middot; HOBBIES</span>
+    </div>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="blog-subbar" aria-label="Hobbies Navigation">
+      <div class="blog-subbar-left">
+        <a href="index.html" class="blog-back-link">&larr; Front Page</a>
+        <span class="hobbies-desk-note">Life outside the lab: trails, travel, crocheting, food, and transit</span>
+      </div>
+
+      <div class="bio-links" style="border-bottom: none; margin-bottom: 0; padding: 0;">
+        <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+        <a href="blog.html" class="text-nav-link">Blog</a>
+        <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+        <span class="social-icon-group">
+          <a
+            href="https://www.linkedin.com/in/esther-aduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/eaduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+            </svg>
+          </a>
+          <button
+            type="button"
+            class="icon-link-btn"
+            onclick="copyEmail(this)"
+            aria-label="Copy email estheraduamah1@gmail.com"
+            title="Copy estheraduamah1@gmail.com"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+          </button>
+        </span>
+      </div>
+    </nav>
+
+    <!-- Scrapbook and Editorial Hobbies Layout -->
+    <main class="hobbies-scrapbook">
+
+      <!-- ROW 1: 1. Hiking (Side-Hinged Taped Polaroid), 2. Ghana (Die-Cut Sticker + Tape), Intro Text, 3. Grandma (Die-Cut Sticker + Tape) -->
+      <section class="hobbies-12-row" aria-label="Outdoors, travel, and everyday favorites">
+        <!-- 1. Hiking: Side-Hinged Taped Polaroid -->
+        <div class="scrap-item span-2 tilt-left-sm">
+          <span class="tape-strip tape-side-left" aria-hidden="true"></span>
+          <span class="tape-strip tape-side-right" aria-hidden="true"></span>
+          <figure class="polaroid-card rough-edge-a">
+            <div class="polaroid-img-wrap cut-nick-right">
+              <img
+                src="images/hikingone.jpeg"
+                alt="Out on a hiking trail"
+                data-fallbacks="hikingone.jpeg,images/hikingone.jpg,hikingone.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">hikingone.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">hiking <a href="https://www.nps.gov/thingstodo/hike-precipice-loop.htm">trails</a></figcaption>
+          </figure>
+        </div>
+
+        <!-- 2. Traveling to Ghana: Hand-Cut Die-Cut Sticker / Magazine Cutout + Tape -->
+        <div class="scrap-item span-2 tilt-right-sm">
+          <span class="tape-strip tape-top-center" aria-hidden="true"></span>
+          <figure class="diecut-sticker-wrap">
+            <div class="diecut-sticker">
+              <img
+                src="images/ghana.jpeg"
+                alt="Traveling to Ghana"
+                data-fallbacks="ghana.jpeg,images/ghana.jpg,ghana.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">ghana.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">traveling to ghana</figcaption>
+          </figure>
+        </div>
+
+        <!-- Editorial Intro Text Block -->
+        <div class="hobbies-text-block span-6">
+          <p>
+            Outside of classes and the lab, I love getting outdoors on hiking trails, traveling back to Ghana, and making things with my hands, including crocheting a hat for my grandma (ironic, I know). Whether I&rsquo;m tracking down new foods to try, going apple picking in the fall, or singing along at concerts, I&rsquo;m happiest when I&rsquo;m exploring somewhere new with good company.
+          </p>
+        </div>
+
+        <!-- 3. Grandma wearing a hat I crocheted: Hand-Cut Die-Cut Sticker / Magazine Cutout + Tape -->
+        <div class="scrap-item span-2 tilt-right-xs">
+          <span class="tape-strip tape-top-angle" aria-hidden="true"></span>
+          <figure class="diecut-sticker-wrap">
+            <div class="diecut-sticker alt-cut">
+              <img
+                src="images/grandma.jpeg"
+                alt="My grandma wearing a hat I crocheted"
+                data-fallbacks="grandma.jpeg,images/grandma.jpg,grandma.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">grandma.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">grandma in a hat i crocheted</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ROW 2: 4. Hamburger (Diagonal Corner Taped Print), 5. Applepick (Side-Hinged Taped Landscape Polaroid), 6. Concert (Landscape Die-Cut Sticker + Tape), 7. Stockholm (Side-Hinged Taped Polaroid), 8. Colosseum (Top-Corner Taped Print) -->
+      <section class="hobbies-12-row" aria-label="Food, apple picking, concerts, and travels">
+        <!-- 4. Trying new foods: Diagonal / Top-Corner Taped Photo Print -->
+        <div class="scrap-item span-2 tilt-left-xs">
+          <span class="tape-strip tape-corner-tl" aria-hidden="true"></span>
+          <span class="tape-strip tape-corner-br" aria-hidden="true"></span>
+          <figure class="mounted-print rough-edge-a">
+            <div class="polaroid-img-wrap">
+              <img
+                src="images/hamburger.jpeg"
+                alt="Trying new foods"
+                data-fallbacks="hamburger.jpeg,images/hamburger.jpg,hamburger.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">hamburger.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">trying <a href="https://corporate.mcdonalds.com/corpmcd/our-stories/article/hq_menu_updates_1200173771.html">new</a> foods</figcaption>
+          </figure>
+        </div>
+
+        <!-- 5. Going apple picking: Side-Hinged Taped Landscape Polaroid (width > height) -->
+        <div class="scrap-item span-3 tilt-right-xs">
+          <span class="tape-strip tape-side-left" aria-hidden="true"></span>
+          <span class="tape-strip tape-side-right" aria-hidden="true"></span>
+          <figure class="polaroid-card landscape rough-edge-b">
+            <div class="polaroid-img-wrap landscape cut-nick-top">
+              <img
+                src="images/applepick.jpeg"
+                alt="Going apple picking"
+                data-fallbacks="applepick.jpeg,images/applepick.jpg,applepick.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">applepick.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">apple picking</figcaption>
+          </figure>
+        </div>
+
+        <!-- 6. Going to concerts: Landscape Hand-Cut Die-Cut Sticker / Magazine Cutout + Tape (width > height) -->
+        <div class="scrap-item span-3 tilt-left-xs">
+          <span class="tape-strip tape-top-center" aria-hidden="true"></span>
+          <figure class="diecut-sticker-wrap landscape">
+            <div class="diecut-sticker landscape">
+              <img
+                src="images/concert.jpeg"
+                alt="Going to concerts"
+                data-fallbacks="concert.jpeg,images/concert.jpg,concert.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">concert.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">going to <a href="https://www.beabadoobee.com/">concerts</a></figcaption>
+          </figure>
+        </div>
+
+        <!-- 7. Traveling to Stockholm: Side-Hinged Taped Polaroid -->
+        <div class="scrap-item span-2 tilt-right-sm">
+          <span class="tape-strip tape-side-left" aria-hidden="true"></span>
+          <span class="tape-strip tape-side-right" aria-hidden="true"></span>
+          <figure class="polaroid-card rough-edge-c">
+            <div class="polaroid-img-wrap">
+              <img
+                src="images/stockholmb.jpeg"
+                alt="Traveling to Stockholm"
+                data-fallbacks="stockholmb.jpeg,images/stockholmb.jpg,stockholmb.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">stockholmb.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">traveling to stockholm</figcaption>
+          </figure>
+        </div>
+
+        <!-- 8. Me at the Colosseum: Diagonal / Top-Corner Taped Photo Print -->
+        <div class="scrap-item span-2 tilt-left-sm">
+          <span class="tape-strip tape-corner-tl" aria-hidden="true"></span>
+          <span class="tape-strip tape-corner-tr" aria-hidden="true"></span>
+          <figure class="mounted-print rough-edge-b">
+            <div class="polaroid-img-wrap cut-nick-right">
+              <img
+                src="images/colosseum.jpeg"
+                alt="Me at the Colosseum in Italy"
+                data-fallbacks="colosseum.jpeg,images/colosseum.jpg,colosseum.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">colosseum.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">me at the colosseum</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ROW 3: 9. Stockholm Public Transit (Landscape Top-Corner Taped Photo Print), Travel/Transit Text, 10. Spider-Man (Hand-Cut Die-Cut Sticker + Tape) -->
+      <section class="hobbies-12-row" aria-label="Public transit and Spider-Man">
+        <!-- 9. Taking public transit whenever I can: Diagonal / Top-Corner Taped Photo Print (width > height) -->
+        <div class="scrap-item span-3 tilt-left-xs">
+          <span class="tape-strip tape-corner-tl" aria-hidden="true"></span>
+          <span class="tape-strip tape-corner-tr" aria-hidden="true"></span>
+          <figure class="mounted-print landscape rough-edge-c">
+            <div class="polaroid-img-wrap landscape cut-nick-left">
+              <img
+                src="images/stockholmpt.jpeg"
+                alt="Taking public transit in Stockholm"
+                data-fallbacks="stockholmpt.jpeg,images/stockholmpt.jpg,stockholmpt.jpg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none;">stockholmpt.jpeg</div>
+            </div>
+            <figcaption class="polaroid-caption">taking public transit whenever i can</figcaption>
+          </figure>
+        </div>
+
+        <!-- Travel and Transit Note -->
+        <div class="hobbies-text-block span-6">
+          <p>
+            From wandering through Stockholm and standing outside the Colosseum in Italy to riding public transit every chance I get, I love learning a city by train and on foot, and I will always make room for anything Spider-Man.
+          </p>
+        </div>
+
+        <!-- 10. Spider-Man: Hand-Cut Die-Cut Sticker / Magazine Cutout + Tape -->
+        <div class="scrap-item span-3 tilt-right-sm">
+          <span class="tape-strip tape-top-center" aria-hidden="true"></span>
+          <figure class="diecut-sticker-wrap landscape" aria-label="Spider-Man cutout">
+            <div class="diecut-sticker landscape">
+              <img
+                src="images/spiderman.jpg"
+                alt="Spider-Man"
+                data-fallbacks="spiderman.jpg,images/spiderman.jpeg,spiderman.jpeg"
+                onerror="cycleImageFallback(this)"
+              />
+              <div class="polaroid-placeholder" style="display: none; min-height: 150px;">spiderman.jpg</div>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function cycleImageFallback(img) {
+      const list = (img.dataset.fallbacks || "").split(",").filter(Boolean);
+      const idx = parseInt(img.dataset.fallbackIdx || "0", 10);
+      if (idx < list.length) {
+        img.dataset.fallbackIdx = String(idx + 1);
+        img.src = list[idx];
+      } else {
+        img.style.display = "none";
+        if (img.nextElementSibling) {
+          img.nextElementSibling.style.display = "flex";
+        }
+      }
+    }
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>

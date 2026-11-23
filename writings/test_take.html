@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthropogenic.</title>
+
+    <style>
+        /* --- 1. RESET & VARIABLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #fdfbf7;
+            --card-color: #eee8d5;
+            --text-color: #333333;
+            --accent-color: #555555;
+            --font-main: "Courier New", Courier, monospace;
+        }
+
+        /* --- 2. BODY LAYOUT --- */
+        body {
+            background-color: var(--bg-color);
+            font-family: var(--font-main);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- 3. MAIN CARD CONTAINER --- */
+        .blog-card {
+            background-color: var(--card-color);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            padding: 60px 80px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        /* --- 4. HEADER SECTION --- */
+        .post-icon {
+            font-size: 24px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            flex-wrap: wrap;
+            align-items: baseline;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .post-date {
+            color: var(--accent-color);
+        }
+
+        .post-title {
+            color: var(--text-color);
+        }
+
+        /* --- 5. CONTENT SECTION --- */
+        .post-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .post-content p {
+            margin-bottom: 28px;
+        }
+
+        /* --- STREAM OF CONSCIOUSNESS --- */
+        .thought {
+            position: relative;
+        }
+
+        .thought p {
+            margin-bottom: 28px;
+        }
+
+        /* --- EMPHASIZED THOUGHTS --- */
+        .emphasis {
+            font-weight: bold;
+        }
+
+        /* --- FINAL MOMENT --- */
+        .ending {
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 50px;
+        }
+
+        .story-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* --- 6. TAGS --- */
+        .post-tags {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .post-tags a {
+            color: var(--text-color);
+            text-decoration: underline;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .post-tags a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* --- 7. FOOTER / NAVIGATION --- */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .back-link {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
+            color: #000;
+        }
+
+        /* --- 8. RESPONSIVE (MOBILE) --- */
+        @media (max-width: 768px) {
+            .blog-card {
+                padding: 30px 20px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .post-header {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .post-content {
+                font-size: 0.9rem;
+                line-height: 1.75;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="blog-card">
+
+        <!-- Top Icon / Back Link -->
+        <div class="post-icon">
+            <a href="\blog.html" class="back-link" title="Back to Blog">
+                <svg width="24" height="24" viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <header class="post-header">
+            <div class="header-meta">
+                <span class="post-date">Nov 24, 2025</span>
+                <span class="post-title">Test Taking.</span>
+            </div>
+        </header>
+
+        <!-- Main Body Text -->
+        <article class="post-content">
+
+            <div class="thought">
+
+                <p> <i>                    Anthropogenic
+ </i>
+                </p>
+
+                <p>
+                    Shit. I don’t know what this is. Ughhhhh ahhhhh shit.
+                    Okay, I just need to use context clues. Think, look around.
+                    It seems positive? Well the story is about climate change,
+                    so let’s hope it’s positive. I’m hungry, I want a snack.
+                    Should’ve had a bigger breakfast.
+                </p>
+
+                <p>
+                    Why is she scratching herself? Why is her wool so loud?
+                    Oh my gosh, this is why I don’t wear wool. It must be uncomfortable.
+                    Or annoying. I wonder if her grandmother made that sweater.
+                    Wait, she said that last week, her grandma definitely did.
+                    Now I feel bad.
+                </p>
+
+                <p>
+                    How much time do I have left? The clock is in between the 5 &amp; 6.
+                    Okay so like 30-ish, 20 ish mins. Pretty close.
+                </p>
+
+                <p>
+                    Dr. Lam is reading a book. Why is he so into it?
+                    Isn’t the really sad one, well the main person is crying on the cover.
+                    But isn't he supposed to be watching us? What's the point of the professor
+                    in the room if he's not going to pay attention.
+                    He also wants us to buy that expensive anthro book.
+                    For a life science class. Fucker. I can’t waste money.
+                    I need to buy onions for dinner. I also want a snack.
+                </p>
+
+                <p>
+                    Mom's gone for the week, and Dad definitely isn't going to cook.
+                    Okay, take the meat out. Then the library for bio textbook.
+                    Then meet Anna across the street for the anthro book.
+                    Why are useless textbooks so expensive?
+                    I'm not buying that book, I gotta buy more rice.
+                    We also need paper towels, tomatoes, onions.
+                    Oh I need onions for tonight.
+                    I wish I could just call Dad to buy it.
+                    What am I kidding. He's not going to buy it.
+                </p>
+
+                <p class="emphasis">
+                    WAIT FUCK. Anthropogenic. What does that mean shit.
+                    I was supposed to figure it out.
+                    Let me just circle the number and go to the next question.
+                </p>
+
+                <p>
+                    Okay umm blah blah Silent Spring blah blah mosquitos.
+                    Oh mosquitos, why are they so awful?
+                    The bites I’ve gotten recently are awful.
+                    I can’t believe how bad they are.
+                    I hope grandma’s okay, I can’t believe she got bit that much.
+                    Mom said her fever wasn't that bad.
+                    Well, I don't know what "that bad" means.
+                    A cold? Malaria? Who fucking knows.
+                </p>
+
+                <p>
+                    Oh it’s so bright in here. What is that guy doing?
+                    I can’t focus. He’s tapping his pencil.
+                    Bro do that silently.
+                    At this point, it should’ve been broken.
+                    He also brought extra lead.
+                    So fancy.
+                    What if the lead breaks, then he should’ve just brought a backup pencil,
+                    like what.
+                </p>
+
+                <p>
+                    The guy beside him is locked in.
+                    He’s got the pencil, the back up pencil,
+                    lead for the back up pencil, separate eraser.
+                    And he’s speeding through this test.
+                    Wait, that's going to be me too.
+                </p>
+
+                <p>
+                    Okay Silent Spring, Rachel Carson I got this–
+                    next question.
+                    Erosion, oceans, wait.
+                    Ocean blue, oh my god the girl who walked in late
+                    had the prettiest blue sweater,
+                    I wonder where she got it.
+                </p>
+
+                <p>
+                    I feel like it’s like ocean blue clear in Ghana,
+                    pretty you know?
+                    I can’t believe that.
+                    She is also wearing blue jeans,
+                    monochromatic moment.
+                    Woah, that's so cool.
+                </p>
+
+                <p class="ending">
+                    WAIT.
+                </p>
+
+                <p class="ending">
+                    Time's up!
+                </p>
+
+            </div>
+
+            <!-- Tags Section -->
+            <div class="post-tags">
+                <a href="#">climate change</a>
+                <a href="#">anthropogenic</a>
+                <a href="#">fiction</a>
+                <a href="#">stream of consciousness</a>
+                <a href="#">Ghana</a>
+            </div>
+
+        </article>
+
+        <!-- Footer Navigation -->
+        <footer class="post-navigation">
+            <a href="./previous.html" class="nav-link">Previous</a>
+            <a href="#" class="nav-link">Next</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>
