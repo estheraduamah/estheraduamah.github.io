@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esther Aduamah — HCI, Health Equity &amp; Biomedical Engineering</title>
+  <link rel="icon" type="image/jpeg" href="funphoto.jpg" />
+
+  <!-- Chomsky ("Manufacturing Consent") Masthead + Editorial Serifs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #121212;
+      --muted: #555555;
+      --rule: #d6d6d6;
+      --tint: #f8f8f6;
+      --accent-blue: #1d4ed8;
+      --highlight-blush: #f3d5d0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #b5b5b0 #f4f4f1;
+    }
+
+    /* Native Scroll-to-Text Fragment Highlighting (#:~:text=...) */
+    ::target-text {
+      background-color: var(--highlight-blush);
+      color: var(--ink);
+    }
+
+    /* Programmatic Text Fragment Highlight Matching Underline Blush */
+    mark.text-fragment-highlight {
+      background-color: var(--highlight-blush);
+      color: var(--ink);
+      padding: 1px 3px;
+      border-radius: 1px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      transition: background-color 0.25s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f4f4f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #b5b5b0;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #777772;
+    }
+
+    body {
+      margin: 0;
+      padding: 18px 24px 72px;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: "Newsreader", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.case-open {
+      overflow: hidden;
+    }
+
+    .newspaper-shell {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2px 0 12px;
+    }
+
+    .masthead h1 {
+      font-family: "Manufacturing Consent", Georgia, serif;
+      font-size: clamp(2.6rem, 5.4vw, 4.2rem);
+      font-weight: 400;
+      margin: 0;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+    }
+
+    /* Double-Ruled Dateline Bar */
+    .dateline {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 5px 2px;
+      margin-bottom: 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      position: relative;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .dateline::before,
+    .dateline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: var(--ink);
+    }
+
+    .dateline::before {
+      top: -3px;
+    }
+
+    .dateline::after {
+      bottom: -3px;
+    }
+
+    .dateline-left {
+      text-align: left;
+    }
+
+    .dateline-center {
+      text-align: center;
+    }
+
+    .dateline-right {
+      text-align: right;
+    }
+
+    /* ============================================================
+       SECOND HEADER: STATIONARY QUESTIONS BAR
+       (3 Questions Max, scrambleText Every ~1 Min)
+       ============================================================ */
+    .questions-ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 4px;
+      margin-top: 3px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
+      background-color: #ffffff;
+    }
+
+    .questions-lead {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--ink);
+      padding-right: 16px;
+      border-right: 1.5px solid #c4c4be;
+      flex-shrink: 0;
+      letter-spacing: 0.01em;
+    }
+
+    .questions-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .questions-list li {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Single crisp black underline only on hover / active */
+    .question-link {
+      background: none;
+      border: none;
+      border-bottom: 1.5px solid transparent;
+      padding: 0 0 2px;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #1f1f1f;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .question-link:hover,
+    .question-link.active-question {
+      color: var(--ink);
+      font-style: italic;
+      border-bottom-color: var(--ink);
+      text-decoration: none;
+    }
+
+    .questions-cycle-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      padding-left: 10px;
+    }
+
+    .cycle-dot {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .cycle-dot.active {
+      background: var(--ink);
+    }
+
+    /* Main Split Body: Sticky Left Column + Natural Right Flow */
+    .front-page-body {
+      display: grid;
+      grid-template-columns: 1.32fr 1.98fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .col-lead {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      padding-right: 26px;
+      border-right: 1px solid var(--rule);
+    }
+
+    /* Editorial Portrait Cutout Stage (~30% Larger Framing for images/nsbeproftrans.png) */
+    .lead-photo-frame {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 8px 6px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f4ef 100%);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .lead-photo {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 335px;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+    }
+
+    .status-banner {
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background-color: var(--tint);
+    }
+
+    /* Links Directly Under Major: CV (PDF), Blog, Hobbies + LinkedIn, GitHub, Mail Icons */
+    .bio-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 14px;
+      padding: 7px 0 11px;
+      margin-bottom: 11px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bio-links a.text-nav-link {
+      border-bottom: 1px solid var(--ink);
+      padding: 0 0 2px;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.1;
+    }
+
+    .bio-links a.text-nav-link:hover {
+      opacity: 0.6;
+    }
+
+    /* Slightly raised so icons center cleanly with uppercase words */
+    .social-icon-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      padding-left: 2px;
+      position: relative;
+      top: -2px;
+    }
+
+    .icon-link-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      padding: 2px;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .icon-link-btn:hover {
+      opacity: 0.62;
+      transform: translateY(-1px);
+    }
+
+    .icon-link-btn svg {
+      width: 15px;
+      height: 15px;
+      display: block;
+    }
+
+    /* Clipboard Copied Tooltip */
+    .copy-tooltip {
+      position: absolute;
+      bottom: calc(100% + 7px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: #ffffff;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      white-space: nowrap;
+      padding: 4px 8px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      z-index: 200;
+    }
+
+    .copy-tooltip.visible {
+      opacity: 1;
+    }
+
+    .bio-copy {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 10px;
+    }
+
+    .bio-copy a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Shared Editorial Strip Box Style ("Focus & Honors" + "In Print") */
+    .editorial-box {
+      padding: 10px 14px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background-color: var(--tint);
+      font-size: 0.84rem;
+      line-height: 1.42;
+    }
+
+    .editorial-box-label {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-right: 6px;
+    }
+
+    .focus-box {
+      margin-top: 12px;
+    }
+
+    /* Right Column Area */
+    .col-right-feed {
+      padding-left: 26px;
+    }
+
+    .pub-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pub-trigger-btn {
+      flex-shrink: 0;
+      background: var(--ink);
+      color: #ffffff;
+      border: 1px solid var(--ink);
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+    }
+
+    .pub-trigger-btn:hover {
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    /* Section Dividers & 2-Column Editorial Project Cards */
+    .projects-section {
+      margin-bottom: 28px;
+    }
+
+    .projects-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-divider-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px;
+    }
+
+    .section-divider-header::before,
+    .section-divider-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-divider-header h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.08rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+
+    .two-col-projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      padding: 0 16px 16px;
+      margin-bottom: 16px;
+      color: inherit;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .project-card:nth-child(odd) {
+      padding-left: 0;
+      border-right: 1px solid var(--rule);
+    }
+
+    .project-card:nth-child(even) {
+      padding-right: 0;
+    }
+
+    /* Hover Image Swap Frame */
+    .thumb-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      margin-bottom: 9px;
+      background: #efefef;
+    }
+
+    .thumb-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease, transform 0.45s ease;
+    }
+
+    .thumb-frame .img-primary {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .thumb-frame .img-hover {
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .project-card:hover .thumb-frame .img-hover {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    .project-card:hover .thumb-frame .img-primary {
+      opacity: 0;
+    }
+
+    .project-kicker {
+      font-size: 0.69rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 3px;
+    }
+
+    .project-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      line-height: 1.24;
+      margin: 0 0 4px;
+    }
+
+    .project-card:hover .project-title {
+      font-style: italic;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .project-summary {
+      font-size: 0.84rem;
+      line-height: 1.4;
+      color: #2b2b2b;
+      margin: 0 0 5px;
+    }
+
+    .project-venue {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ============================================================
+       SMALLER POP-UP: PUBLICATIONS & CONFERENCES LIST
+       ============================================================ */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 18, 18, 0.52);
+      z-index: 160;
+      padding: 20px 16px;
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-sheet {
+      background: #ffffff;
+      max-width: 600px;
+      width: 100%;
+      padding: 24px 28px;
+      border: 1px solid var(--ink);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
+      position: relative;
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: 1px solid var(--ink);
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .modal-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 5px;
+    }
+
+    .modal-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.38rem;
+      font-weight: 700;
+      line-height: 1.22;
+      margin: 0 0 8px;
+      padding-right: 68px;
+    }
+
+    .modal-meta {
+      font-size: 0.85rem;
+      color: #333333;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pub-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pub-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      padding: 2px 6px;
+      margin-bottom: 5px;
+    }
+
+    .pub-item-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.32;
+      margin: 0 0 4px;
+    }
+
+    .pub-item-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ============================================================
+       NEWSPAPER-ESQUE SCROLLABLE CASE-STUDY VIEW + SCROLL BARS
+       ============================================================ */
+    .case-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: #ffffff;
+      overflow-y: scroll;
+      font-family: "Newsreader", Georgia, serif;
+      scrollbar-width: auto;
+      scrollbar-color: #222222 #ecebe6;
+    }
+
+    .case-overlay::-webkit-scrollbar {
+      width: 11px;
+    }
+
+    .case-overlay::-webkit-scrollbar-track {
+      background: #ecebe6;
+      border-left: 1px solid var(--rule);
+    }
+
+    .case-overlay::-webkit-scrollbar-thumb {
+      background: #2b2b2b;
+      border: 2px solid #ecebe6;
+    }
+
+    .case-overlay::-webkit-scrollbar-thumb:hover {
+      background: #000000;
+    }
+
+    .case-overlay.open {
+      display: block;
+    }
+
+    /* Top Reading Progress Scroll Bar */
+    .case-progress-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 11px;
+      height: 4px;
+      background: #e8e7e2;
+      z-index: 145;
+    }
+
+    .case-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent-blue);
+      transition: width 0.08s linear;
+    }
+
+    /* Sticky Newspaper Masthead Bar */
+    .case-newspaper-header {
+      position: sticky;
+      top: 4px;
+      z-index: 140;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--ink);
+      padding: 10px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .case-newspaper-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .case-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-self: start;
+    }
+
+    .case-nav-center {
+      text-align: center;
+    }
+
+    .case-mini-masthead {
+      font-family: "Manufacturing Consent", Georgia, serif;
+      font-size: 1.38rem;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+    }
+
+    .case-desk-tag {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      border-bottom: 2px solid var(--highlight-blush);
+    }
+
+    .case-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-self: end;
+    }
+
+    .case-nav-left button,
+    .case-nav-right a.text-nav-link {
+      background: none;
+      border: none;
+      border-bottom: 1px solid transparent;
+      padding: 0 0 2px;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.1;
+      cursor: pointer;
+    }
+
+    .case-nav-right a.text-nav-link {
+      border-bottom-color: var(--ink);
+    }
+
+    .case-nav-left button:hover,
+    .case-nav-right a.text-nav-link:hover {
+      border-bottom-color: var(--ink);
+      opacity: 0.65;
+    }
+
+    /* Right-aligned tooltip on case-study header so email never clips at right edge */
+    .case-nav-right .copy-tooltip {
+      bottom: auto;
+      top: calc(100% + 8px);
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+
+    /* Gradient Hero Banner */
+    .case-hero {
+      position: relative;
+      min-height: 440px;
+      padding: 56px 72px 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--ink);
+      background: linear-gradient(
+        180deg,
+        var(--hero-start, #497999) 0%,
+        var(--hero-mid, #9ec0d6) 68%,
+        #f8f8f6 100%
+      );
+    }
+
+    .case-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      width: 38px;
+      height: 38px;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .case-arrow:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .case-arrow.prev {
+      left: 24px;
+    }
+
+    .case-arrow.next {
+      right: 24px;
+    }
+
+    /* Centered Visual Stage with Overlaid Staggered White Display Type */
+    .case-hero-stage {
+      position: relative;
+      width: min(780px, 100%);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .case-hero-cutout {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(460px, 82%);
+      max-height: 300px;
+      object-fit: contain;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.24));
+    }
+
+    .case-hero-typography {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .case-hero-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.15rem, 5vw, 3.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      margin: 0 auto 14px;
+      max-width: 740px;
+      color: #ffffff;
+      text-shadow: 0 3px 22px rgba(0, 0, 0, 0.42);
+    }
+
+    .case-hero-title .stagger-right {
+      display: block;
+      padding-left: 14%;
+    }
+
+    .case-hero-title .stagger-left {
+      display: block;
+      padding-right: 10%;
+    }
+
+    .case-hero-subtitle {
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #ffffff;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.48);
+      margin: 0;
+    }
+
+    /* Broadsheet Case Study Content Container */
+    .case-content-wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 36px 28px 88px;
+    }
+
+    /* Left Newspaper Metadata Rail + Right Overview Paragraphs */
+    .case-overview-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      align-items: start;
+      padding-bottom: 38px;
+      border-bottom: 1px solid var(--ink);
+      margin-bottom: 38px;
+    }
+
+    .case-meta-table {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      row-gap: 16px;
+      column-gap: 12px;
+      padding-right: 26px;
+      border-right: 1px solid var(--rule);
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .case-meta-label {
+      font-size: 0.69rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .case-meta-value ul {
+      list-style: disc;
+      padding-left: 15px;
+      margin: 0;
+    }
+
+    .case-meta-value div + ul {
+      margin-top: 3px;
+    }
+
+    .case-meta-value li {
+      margin-bottom: 3px;
+    }
+
+    .case-meta-value a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+
+    .case-narrative {
+      padding-left: 32px;
+    }
+
+    .case-narrative p {
+      font-size: 1.03rem;
+      line-height: 1.72;
+      color: #1c1c1c;
+      margin: 0 0 18px;
+    }
+
+    .case-narrative p:first-child::first-letter {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 3.1rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.84;
+      padding-right: 10px;
+      padding-top: 4px;
+      color: var(--ink);
+    }
+
+    .case-narrative p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Numbered Deep-Dive Sections (Newspaper Feature Columns) */
+    .case-sections-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 46px;
+    }
+
+    .case-chapter {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      align-items: start;
+      padding-top: 26px;
+      border-top: 1px solid var(--rule);
+      scroll-margin-top: 76px;
+    }
+
+    .case-chapter:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .chapter-heading-col {
+      padding-right: 26px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .chapter-num {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .chapter-heading {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.32;
+    }
+
+    .chapter-body {
+      padding-left: 32px;
+    }
+
+    .chapter-body p {
+      font-size: 0.99rem;
+      line-height: 1.68;
+      color: #202020;
+      margin: 0 0 14px;
+    }
+
+    .chapter-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Clean Pull-Quote Box (No Left Black Bar) */
+    .chapter-quote {
+      margin: 16px 0 4px;
+      padding: 12px 18px;
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--tint);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.98rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    /* Scrollable Project Pictures & Artifacts Gallery */
+    .case-gallery-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid var(--ink);
+      padding-top: 22px;
+      margin: 0 0 22px;
+    }
+
+    .case-gallery-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .case-gallery-header {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .case-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .case-figure {
+      margin: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .case-figure.wide {
+      grid-column: 1 / -1;
+    }
+
+    .case-figure img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--rule);
+      background: #f2f1ed;
+    }
+
+    .case-figure figcaption {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: #4a4a46;
+      margin-top: 8px;
+      line-height: 1.45;
+    }
+
+    /* Bottom Double-Ruled Project Switcher Footer */
+    .case-more-footer {
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 14px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: var(--tint);
+    }
+
+    .case-more-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .case-more-btn:hover {
+      font-style: italic;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive Mobile & Tablet Adjustments */
+    @media (max-width: 919px) {
+      body {
+        padding: 16px 16px 48px;
+      }
+
+      .questions-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .questions-lead {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .questions-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .questions-list li {
+        text-align: left;
+      }
+
+      .front-page-body {
+        display: block;
+      }
+
+      .col-lead {
+        position: static;
+        padding-right: 0;
+        padding-bottom: 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--ink);
+        margin-bottom: 24px;
+      }
+
+      .col-right-feed {
+        padding-left: 0;
+      }
+
+      .two-col-projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card:nth-child(odd) {
+        border-right: none;
+      }
+
+      .project-card {
+        padding: 0 0 18px;
+      }
+
+      .case-newspaper-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 10px 16px;
+        gap: 6px;
+      }
+
+      .case-nav-left,
+      .case-nav-right {
+        justify-self: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .case-hero {
+        padding: 48px 24px 44px;
+        min-height: 340px;
+      }
+
+      .case-arrow.prev {
+        left: 10px;
+      }
+
+      .case-arrow.next {
+        right: 10px;
+      }
+
+      .case-overview-grid,
+      .case-chapter,
+      .case-gallery {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .case-meta-table,
+      .chapter-heading-col {
+        padding-right: 0;
+        border-right: none;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .case-narrative,
+      .chapter-body {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="newspaper-shell">
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1>Esther Aduamah</h1>
+    </header>
+
+    <!-- Auto-Updating Dateline -->
+    <div class="dateline">
+      <span id="live-time" class="dateline-left">--:--</span>
+      <span id="live-date" class="dateline-center">LOADING DATE...</span>
+      <span class="dateline-right">BOSTON, MA</span>
+    </div>
+
+    <!-- SECOND HEADER: STATIONARY 3-QUESTION BAR WITH SCRAMBLETEXT CYCLING -->
+    <nav id="questions-ribbon" class="questions-ribbon" aria-label="Design Questions I Think About">
+      <span class="questions-lead">Questions I&rsquo;m Thinking About</span>
+      <ul id="questions-list" class="questions-list">
+        <li><button type="button" class="question-link" data-slot="0"></button></li>
+        <li><button type="button" class="question-link" data-slot="1"></button></li>
+        <li><button type="button" class="question-link" data-slot="2"></button></li>
+      </ul>
+      <div id="questions-cycle-dots" class="questions-cycle-dots" aria-label="Question sets"></div>
+    </nav>
+
+    <!-- Split Front Page -->
+    <main class="front-page-body">
+      <!-- LEFT HAND SIDE: Sticks at Top While Right Side Scrolls -->
+      <section class="col-lead">
+        <div class="lead-photo-frame">
+          <img
+            src="images/nsbeproftrans.png"
+            alt="Professional headshot portrait of Esther Aduamah, Biomedical Engineering student at Olin College of Engineering, smiling warmly at the camera"
+            class="lead-photo"
+            onerror="this.src='images/professionalphoto.png'"
+          />
+        </div>
+
+        <div class="status-banner">
+          B.S. Biomedical Engineering &rsquo;27 &middot; Olin College of Engineering
+        </div>
+
+        <!-- Links Directly Under Major: CV (PDF), Blog, Hobbies + Clickable LinkedIn, GitHub, Mail Icons -->
+        <nav class="bio-links" aria-label="Primary Links">
+          <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+          <a href="blog.html" class="text-nav-link">Blog</a>
+          <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+          <span class="social-icon-group">
+            <a
+              href="https://www.linkedin.com/in/esther-aduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/eaduamah"
+              target="_blank"
+              rel="noreferrer"
+              class="icon-link-btn"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+              </svg>
+            </a>
+            <button
+              type="button"
+              class="icon-link-btn"
+              onclick="copyEmail(this)"
+              aria-label="Copy email estheraduamah1@gmail.com"
+              title="Copy estheraduamah1@gmail.com"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+            </button>
+          </span>
+        </nav>
+
+        <p class="bio-copy">
+          I&rsquo;m Esther (she/her), a Biomedical Engineering senior at Olin College (&rsquo;27)
+          who builds at the fault line where clinical systems fail the people they&rsquo;re meant
+          to serve. Whether co-designing a wearable AI assistant with Boston older adults who dread
+          patient portals or modeling breast cancer density across radiomics and spatial
+          transcriptomics at
+          <a href="https://sites.google.com/sandiego.edu/nsf-ires-us-sweden/home" target="_blank" rel="noreferrer">Karolinska Institutet</a>,
+          I pair hard engineering with lived human evidence.
+        </p>
+
+        <p class="bio-copy">
+          I serve as a Project Manager at Olin&rsquo;s
+          <a href="https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented" target="_blank" rel="noreferrer">Human-Centered Computing Lab</a>,
+          and previously investigated clinical trial distrust in Olin&rsquo;s Health Equity &amp; Access Lab
+          and reproductive health access as an Activist Academy Fellow at
+          <a href="https://fenwayhealth.org/" target="_blank" rel="noreferrer">Fenway Health</a>.
+        </p>
+
+        <!-- Focus & Honors Box Matching "In Print" Style -->
+        <div class="editorial-box focus-box">
+          <span class="editorial-box-label">Focus &amp; Honors</span>
+          Wearable &amp; Multimodal AI &middot; Spatial Transcriptomics &amp; Radiomics &middot;
+          Stanford SERGE &rsquo;26 &amp; SERIS &rsquo;24 &middot; ACM SIGACCESS Scholar &middot;
+          Founder &amp; President, Olin NSBE.
+        </div>
+      </section>
+
+      <!-- RIGHT HAND SIDE: Flows Naturally Down Through Featured & Additional Projects -->
+      <section class="col-right-feed" aria-label="Projects and Publications">
+        <!-- Quick Publications Trigger Strip -->
+        <div class="editorial-box pub-strip">
+          <div>
+            <span class="editorial-box-label">In Print</span>
+            Peer-reviewed HCI paper (ACM ASSETS &rsquo;26) &amp; conference presentations (BMES, AAAS).
+          </div>
+          <button type="button" class="pub-trigger-btn" onclick="openPubModal()">
+            Publications (3)
+          </button>
+        </div>
+
+        <!-- SECTION 1: FEATURED PROJECTS -->
+        <div class="projects-section">
+          <div class="section-divider-header">
+            <h2>Featured Projects</h2>
+          </div>
+          <div id="featured-grid" class="two-col-projects"></div>
+        </div>
+
+        <!-- SECTION 2: ENGINEERING & BIOMEDICAL BUILDS -->
+        <div class="projects-section">
+          <div class="section-divider-header">
+            <h2>Engineering &amp; Biomedical Builds</h2>
+          </div>
+          <div id="builds-grid" class="two-col-projects"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============================================================
+       POP-UP: COMPACT PUBLICATIONS & CONFERENCES LIST
+       ============================================================ -->
+  <div id="pub-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pub-modal-title">
+    <div class="modal-sheet">
+      <button type="button" class="modal-close" onclick="closePubModal()">Close &times;</button>
+      <p class="modal-kicker">Curriculum Vitae &middot; Selected Output</p>
+      <h2 class="modal-title" id="pub-modal-title">Publications &amp; Presentations</h2>
+      <p class="modal-meta">Esther Aduamah &middot; Olin College of Engineering &amp; Karolinska Institutet</p>
+
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-badge">Technical Paper &middot; Oct 2026</span>
+          <p class="pub-item-title">
+            &ldquo;Should I Use This or My Mind?&rdquo;: Designing a Wearable Multimodal Tech Assistant for Older Adults Navigating Patient Portals
+          </p>
+          <p class="pub-item-meta">
+            Co-Author &middot; <strong>ACM ASSETS 2026</strong> (ACM SIGACCESS Travel Scholarship Recipient)
+          </p>
+        </li>
+
+        <li class="pub-item">
+          <span class="pub-badge">Conference Poster &middot; Oct 2026</span>
+          <p class="pub-item-title">
+            Integrating Clinical Radiomics and Spatial Transcriptomics to Characterize Mammographic Density Patterns in Estrogen Receptor Positive and Triple-Negative Breast Cancer
+          </p>
+          <p class="pub-item-meta">
+            Presenting Author &middot; <strong>Biomedical Engineering Society (BMES) Annual Meeting</strong>, Orlando, FL
+          </p>
+        </li>
+
+        <li class="pub-item">
+          <span class="pub-badge">Conference Presentation &middot; 2025</span>
+          <p class="pub-item-title">
+            Undergraduate Research Presentation
+          </p>
+          <p class="pub-item-meta">
+            Presenter &middot; <strong>AAAS (American Association for the Advancement of Science) Annual Meeting</strong>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FULL SCROLLABLE NEWSPAPER CASE-STUDY VIEW + SCROLL BAR
+       ============================================================ -->
+  <div id="case-study-view" class="case-overlay" role="dialog" aria-modal="true" aria-labelledby="case-title">
+    <!-- Top Reading Progress Bar -->
+    <div class="case-progress-track" aria-hidden="true">
+      <div id="case-progress-fill" class="case-progress-fill"></div>
+    </div>
+
+    <!-- Sticky Newspaper Masthead Bar -->
+    <nav class="case-newspaper-header" aria-label="Case Study Navigation">
+      <div class="case-nav-left">
+        <button type="button" onclick="closeCaseStudy()">&larr; Front Page</button>
+      </div>
+      <div class="case-nav-center">
+        <span class="case-mini-masthead">Esther Aduamah</span>
+        <span id="case-desk-tag" class="case-desk-tag">Case Dispatch</span>
+      </div>
+      <div class="case-nav-right">
+        <a href="#" target="_blank" rel="noreferrer" class="text-nav-link">CV (PDF)</a>
+        <a href="blog.html" class="text-nav-link">Blog</a>
+        <a href="hobbies.html" class="text-nav-link">Hobbies</a>
+        <span class="social-icon-group">
+          <a
+            href="https://www.linkedin.com/in/esther-aduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/eaduamah"
+            target="_blank"
+            rel="noreferrer"
+            class="icon-link-btn"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+            </svg>
+          </a>
+          <button
+            type="button"
+            class="icon-link-btn"
+            onclick="copyEmail(this)"
+            aria-label="Copy email estheraduamah1@gmail.com"
+            title="Copy estheraduamah1@gmail.com"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span class="copy-tooltip">Copied estheraduamah1@gmail.com!</span>
+          </button>
+        </span>
+      </div>
+    </nav>
+
+    <!-- Gradient Hero Banner -->
+    <header id="case-hero" class="case-hero">
+      <button type="button" class="case-arrow prev" onclick="stepCaseStudy(-1)" aria-label="Previous project">&larr;</button>
+      <button type="button" class="case-arrow next" onclick="stepCaseStudy(1)" aria-label="Next project">&rarr;</button>
+
+      <div class="case-hero-stage">
+        <img id="case-hero-cutout" class="case-hero-cutout" src="" alt="" />
+        <div class="case-hero-typography">
+          <h1 id="case-title" class="case-hero-title">Project Title</h1>
+          <p id="case-subtitle" class="case-hero-subtitle">INTERACTION &middot; HEALTH EQUITY &middot; SYSTEMS</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Newspaper Broadsheet Content: Metadata Left Rail + Overview + Numbered Chapters + Gallery -->
+    <article id="case-content-wrap" class="case-content-wrap">
+      <div class="case-overview-grid">
+        <div id="case-meta-table" class="case-meta-table"></div>
+        <div id="case-narrative" class="case-narrative"></div>
+      </div>
+
+      <div id="case-sections-stack" class="case-sections-stack"></div>
+
+      <div class="case-gallery-divider">
+        <h3 class="case-gallery-header">Visual Documentation &amp; Artifacts</h3>
+      </div>
+      <div id="case-gallery" class="case-gallery"></div>
+
+      <footer class="case-more-footer">
+        <button type="button" class="case-more-btn" id="footer-prev-btn" onclick="stepCaseStudy(-1)">
+          &larr; Previous Project
+        </button>
+        <button type="button" class="case-more-btn" onclick="closeCaseStudy()">
+          Front Page
+        </button>
+        <button type="button" class="case-more-btn" id="footer-next-btn" onclick="stepCaseStudy(1)">
+          Next Project &rarr;
+        </button>
+      </footer>
+    </article>
+  </div>
+
+  <script>
+    // ============================================================
+    // 1. LIVE CLOCK, DATE & CLIPBOARD EMAIL
+    // ============================================================
+    function updateDateline() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const ampm = hours >= 12 ? "PM" : "AM";
+      hours = hours % 12 || 12;
+      document.getElementById("live-time").textContent = `${hours}:${minutes}${ampm}`;
+
+      const dateOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      document.getElementById("live-date").textContent = now
+        .toLocaleDateString("en-US", dateOptions)
+        .toUpperCase();
+    }
+    updateDateline();
+    setInterval(updateDateline, 1000);
+
+    function copyEmail(triggerBtn) {
+      const address = "estheraduamah1@gmail.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(address).catch(() => {});
+      } else {
+        const tempInput = document.createElement("input");
+        tempInput.value = address;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+      }
+
+      if (triggerBtn) {
+        const tooltip = triggerBtn.querySelector(".copy-tooltip");
+        if (tooltip) {
+          tooltip.classList.add("visible");
+          clearTimeout(triggerBtn._copyTimer);
+          triggerBtn._copyTimer = setTimeout(() => {
+            tooltip.classList.remove("visible");
+          }, 1900);
+        }
+      }
+    }
+
+    // Inline fallback SVG of smart glasses so the hero overlay looks crisp even before adding images/glasses.png
+    const GLASSES_FALLBACK_SVG =
+      "data:image/svg+xml;utf8," +
+      encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260">
+          <defs>
+            <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1b242c"/>
+              <stop offset="100%" stop-color="#344452"/>
+            </linearGradient>
+            <linearGradient id="lensGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#10202e" stop-opacity="0.45"/>
+            </linearGradient>
+          </defs>
+          <path d="M55 92 L115 62 L525 62 L585 92" fill="none" stroke="#1b242c" stroke-width="14" stroke-linecap="round"/>
+          <rect x="68" y="76" width="210" height="128" rx="34" fill="url(#lensGrad)" stroke="url(#frameGrad)" stroke-width="18"/>
+          <rect x="362" y="76" width="210" height="128" rx="34" fill="url(#lensGrad)" stroke="url(#frameGrad)" stroke-width="18"/>
+          <path d="M278 112 Q320 96 362 112" fill="none" stroke="url(#frameGrad)" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="92" cy="102" r="7" fill="#7dd3fc" opacity="0.85"/>
+          <circle cx="548" cy="102" r="7" fill="#7dd3fc" opacity="0.85"/>
+        </svg>`
+      );
+
+    // ============================================================
+    // 2. SECOND HEADER: DESIGN QUESTIONS + SCRAMBLETEXT + TEXT FRAGMENTS
+    //    Edit any textFragment (#:~:text=...) below to refine targets!
+    // ============================================================
+    const QUESTION_BATCHES = [
+      [
+        {
+          label: "Should I use this or my mind?",
+          projectId: "should-i-use-this",
+          textFragment: "#:~:text=Should%20I%20use%20this%20or%20my%20mind%3F"
+        },
+        {
+          label: "When does AI support vs. replace autonomy?",
+          projectId: "should-i-use-this",
+          textFragment: "#:~:text=when%20AI%20assistance%20supports%20independence%20versus%20replacing%20it"
+        },
+        {
+          label: "How do patient portals exclude older adults?",
+          projectId: "should-i-use-this",
+          textFragment: "#:~:text=nested%20clinical%20jargon%2C%20multi-step%20authentication%20loops"
+        }
+      ],
+      [
+        {
+          label: "Can radiomics decode tumor biology?",
+          projectId: "radiomics-spatial",
+          textFragment: "#:~:text=macro-level%20radiomic%20descriptors%20are%20rarely%20mapped%20onto%20underlying%20cellular%20gene%20expression"
+        },
+        {
+          label: "How do we rebuild clinical trial trust?",
+          projectId: "clinical-trial-equity",
+          textFragment: "#:~:text=exclusion%20criteria%2C%20uncompensated%20participation%20burdens%2C%20and%20opaque%20informed%20consent%20documents"
+        },
+        {
+          label: "How can SDOH metrics guide equitable care?",
+          projectId: "sdoh-recommender",
+          textFragment: "#:~:text=surface%20trade-offs%20hidden%20in%20single-index%20rankings"
+        }
+      ]
+    ];
+
+    let currentQuestionBatch = 0;
+    let isQuestionRibbonHovered = false;
+    const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+-=*#?";
+
+    // Punchy cipher-wave scramble: broad 12-char active front + early full-line burst
+    function scrambleText(el, targetText, duration = 760) {
+      if (el._scrambleRaf) {
+        cancelAnimationFrame(el._scrambleRaf);
+      }
+      const startTime = performance.now();
+      const length = targetText.length;
+      let lastStep = -1;
+
+      function frame(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const revealedCount = Math.floor(Math.pow(progress, 1.15) * length);
+        const step = Math.floor(elapsed / 32);
+
+        if (step !== lastStep || progress >= 1) {
+          lastStep = step;
+          let output = "";
+          for (let i = 0; i < length; i++) {
+            const ch = targetText[i];
+            if (ch === " " || ch === "?" || ch === "." || ch === "," || ch === "’" || ch === "'") {
+              output += ch;
+            } else if (i < revealedCount) {
+              output += ch;
+            } else if (progress < 0.28 || i < revealedCount + 12) {
+              output += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+            } else {
+              output += ch;
+            }
+          }
+          el.textContent = output;
+        }
+
+        if (progress < 1) {
+          el._scrambleRaf = requestAnimationFrame(frame);
+        } else {
+          el.textContent = targetText;
+          el._scrambleRaf = null;
+        }
+      }
+
+      el._scrambleRaf = requestAnimationFrame(frame);
+    }
+
+    function renderQuestionBatch(batchIndex, animate = false) {
+      currentQuestionBatch = (batchIndex + QUESTION_BATCHES.length) % QUESTION_BATCHES.length;
+      const batch = QUESTION_BATCHES[currentQuestionBatch];
+      const buttons = document.querySelectorAll("#questions-list .question-link");
+
+      buttons.forEach((btn, i) => {
+        const item = batch[i];
+        btn.classList.remove("active-question");
+        if (!item) {
+          btn.style.display = "none";
+          return;
+        }
+        btn.style.display = "inline-block";
+        btn.onclick = () => {
+          buttons.forEach((b) => b.classList.remove("active-question"));
+          btn.classList.add("active-question");
+          openCaseByTextFragment(item.projectId, item.textFragment);
+        };
+
+        if (animate) {
+          setTimeout(() => scrambleText(btn, item.label, 760), i * 70);
+        } else {
+          btn.textContent = item.label;
+        }
+      });
+
+      const dotsContainer = document.getElementById("questions-cycle-dots");
+      dotsContainer.innerHTML = QUESTION_BATCHES.map(
+        (_, idx) =>
+          `<button type="button" class="cycle-dot ${idx === currentQuestionBatch ? "active" : ""}" aria-label="Question set ${idx + 1}" onclick="renderQuestionBatch(${idx}, true)"></button>`
+      ).join("");
+    }
+
+    const questionsRibbon = document.getElementById("questions-ribbon");
+    questionsRibbon.addEventListener("mouseenter", () => {
+      isQuestionRibbonHovered = true;
+    });
+    questionsRibbon.addEventListener("mouseleave", () => {
+      isQuestionRibbonHovered = false;
+    });
+
+    renderQuestionBatch(0, false);
+    // Cycle to the next 3 questions every 60 seconds with scrambleText
+    setInterval(() => {
+      if (!isQuestionRibbonHovered && !document.body.classList.contains("case-open")) {
+        renderQuestionBatch(currentQuestionBatch + 1, true);
+      }
+    }, 60000);
+
+    // ============================================================
+    // 3. SCROLL-TO-TEXT FRAGMENT (#:~:text=...) HIGHLIGHTER ENGINE
+    // ============================================================
+    function clearTextFragmentHighlights(rootEl) {
+      const marks = rootEl.querySelectorAll("mark.text-fragment-highlight");
+      marks.forEach((mark) => {
+        const parent = mark.parentNode;
+        if (!parent) return;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    }
+
+    function parseTextFragmentDirective(fragmentString) {
+      if (!fragmentString) return null;
+      const idx = fragmentString.indexOf(":~:text=");
+      if (idx === -1) return null;
+
+      const rawParam = fragmentString.slice(idx + 8).split("&")[0];
+      const parts = rawParam.split(",");
+
+      let prefix = "";
+      let suffix = "";
+      const terms = [];
+
+      parts.forEach((part) => {
+        if (part.endsWith("-") && terms.length === 0 && !prefix) {
+          prefix = decodeURIComponent(part.slice(0, -1));
+        } else if (part.startsWith("-") && terms.length > 0) {
+          suffix = decodeURIComponent(part.slice(1));
+        } else {
+          terms.push(decodeURIComponent(part));
+        }
+      });
+
+      if (!terms[0]) return null;
+      return {
+        prefix,
+        textStart: terms[0],
+        textEnd: terms[1] || "",
+        suffix,
+      };
+    }
+
+    function applyTextFragmentHighlight(containerEl, fragmentString) {
+      clearTextFragmentHighlights(containerEl);
+      const parsed = parseTextFragmentDirective(fragmentString);
+      if (!parsed) return false;
+
+      // Update URL with standard Scroll-to-Text Fragment directive
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", fragmentString);
+      }
+
+      const walker = document.createTreeWalker(containerEl, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const parentTag = node.parentElement ? node.parentElement.tagName : "";
+          if (parentTag === "SCRIPT" || parentTag === "STYLE") return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        },
+      });
+
+      const textNodes = [];
+      let current;
+      while ((current = walker.nextNode())) {
+        textNodes.push(current);
+      }
+
+      for (const node of textNodes) {
+        const text = node.nodeValue;
+        const lowerText = text.toLowerCase();
+        const startQuery = parsed.textStart.toLowerCase();
+        const startIdx = lowerText.indexOf(startQuery);
+
+        if (startIdx !== -1) {
+          let endIdx = startIdx + parsed.textStart.length;
+          if (parsed.textEnd) {
+            const endQuery = parsed.textEnd.toLowerCase();
+            const foundEnd = lowerText.indexOf(endQuery, endIdx);
+            if (foundEnd !== -1) {
+              endIdx = foundEnd + parsed.textEnd.length;
+            }
+          }
+
+          const beforeText = text.slice(0, startIdx);
+          const matchedText = text.slice(startIdx, endIdx);
+          const afterText = text.slice(endIdx);
+
+          const markEl = document.createElement("mark");
+          markEl.className = "text-fragment-highlight";
+          markEl.textContent = matchedText;
+
+          const frag = document.createDocumentFragment();
+          if (beforeText) frag.appendChild(document.createTextNode(beforeText));
+          frag.appendChild(markEl);
+          if (afterText) frag.appendChild(document.createTextNode(afterText));
+
+          node.parentNode.replaceChild(frag, node);
+
+          markEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // ============================================================
+    // 4. PROJECT DATA
+    //    Set collaboration: "Solo" or "Group".
+    //    When collaboration is "Group", populate teamMembers with names!
+    // ============================================================
+    const PROJECTS = [
+      {
+        id: "should-i-use-this",
+        section: "featured",
+        kicker: "Human-Computer Interaction",
+        title: "“Should I Use This or My Mind?”",
+        heroTitleHTML: `<span class="stagger-right">“Should I</span><span class="stagger-left">Use This Or</span><span class="stagger-right">My Mind?”</span>`,
+        subtitle: "WEARABLE MULTIMODAL ASSISTANT · ACCESSIBLE CARE · HCI",
+        heroStart: "#497999",
+        heroMid: "#9ec0d6",
+        heroCutoutImg: "images/glasses.png",
+        heroCutoutFallback: GLASSES_FALLBACK_SVG,
+        primaryImg: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=80",
+        summary: "Synthesizing participatory design findings into a wearable multimodal interface for patient portal navigation.",
+        venue: "Olin HCC Lab · ACM ASSETS ’26",
+        year: "2025–Present",
+        collaboration: "Group",
+        teamMembers: [
+          "Team Member 1",
+          "Team Member 2",
+          "Faculty Advisor"
+        ],
+        roles: [
+          "Project Manager",
+          "Participatory Design",
+          "Multimodal Prototyping",
+          "User Study Synthesis"
+        ],
+        context: [
+          "Human-Centered Computing Lab",
+          "Olin College of Engineering"
+        ],
+        outcomes: [
+          "Co-author, ACM ASSETS 2026 Technical Paper",
+          "ACM SIGACCESS Travel Scholarship"
+        ],
+        links: [
+          {
+            label: "Olin Lab Feature Article",
+            url: "https://www.olin.edu/articles/story-oliners-collaborate-local-senior-center-artificial-intelligence-ai-and-augmented"
+          }
+        ],
+        paragraphs: [
+          "As a Project Manager at the Human-Centered Computing Lab at Olin College, I led a multidisciplinary student research team collaborating directly with local older adults to examine friction points in digital healthcare portals.",
+          "Through contextual inquiry sessions and iterative co-design workshops, we synthesized empirical findings into system requirements for AI Sidekick—a wearable multimodal assistant that pairs ambient audio guidance with step-by-step interface scaffolding without eroding user autonomy.",
+          "Our technical paper, “Should I Use This or My Mind?”: Designing a Wearable Multimodal Tech Assistant for Older Adults Navigating Patient Portals, was accepted to ACM ASSETS 2026."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Contextual Inquiry & Portal Friction",
+            body: [
+              "We began by observing how older adults at a local senior center navigate real-world clinical portals to check lab results, refill prescriptions, and message providers.",
+              "Rather than struggling with basic device literacy, participants ran into nested clinical jargon, multi-step authentication loops, and dense interfaces designed without cognitive scaffolding."
+            ]
+          },
+          {
+            anchor: "chapter-02",
+            num: "02",
+            title: "Participatory Co-Design & The Autonomy Tension",
+            body: [
+              "In iterative co-design workshops using wearable smart glasses, our early prototypes assumed users wanted the assistant to automate portal actions end-to-end.",
+              "Participants pushed back immediately—asking whether relying on an automated agent would erode their own agency and memory over time."
+            ],
+            quote: "“Should I use this or my mind?” — Co-design participant reflecting on when AI assistance supports independence versus replacing it."
+          },
+          {
+            anchor: "chapter-03",
+            num: "03",
+            title: "Multimodal Scaffolding Architecture",
+            body: [
+              "We translated those synthesis themes into a stepped, user-paced multimodal architecture: ambient audio explanations paired with glanceable visual cues that orient the user while keeping every clinical decision firmly in their hands."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "images/glasses.png",
+            fallback: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1100&q=80",
+            caption: "Wearable smart-glasses form factor evaluated during co-design sessions with older adults.",
+            wide: true
+          },
+          {
+            src: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=750&q=80",
+            caption: "Placeholder visual — swap with participatory workshop synthesis matrix."
+          },
+          {
+            src: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=750&q=80",
+            caption: "Placeholder visual — swap with multimodal audio + visual prompt flow."
+          }
+        ]
+      },
+      {
+        id: "radiomics-spatial",
+        section: "featured",
+        kicker: "Computational Oncology",
+        title: "Radiomics & Spatial Transcriptomics in Breast Cancer",
+        heroTitleHTML: `<span class="stagger-right">Radiomics &amp;</span><span class="stagger-left">Spatial</span><span class="stagger-right">Transcriptomics</span>`,
+        subtitle: "COMPUTATIONAL ONCOLOGY · MACHINE LEARNING · BIOMEDICAL IMAGING",
+        heroStart: "#9e3b54",
+        heroMid: "#d494a4",
+        heroCutoutImg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80",
+        summary: "Machine learning integration of mammographic density patterns across ER+ and triple-negative breast cancer.",
+        venue: "Karolinska Institutet · BMES ’26",
+        year: "Apr–Aug 2026",
+        collaboration: "Group",
+        teamMembers: [
+          "Collaborator 1",
+          "Principal Investigator (Daub Lab)"
+        ],
+        roles: [
+          "Undergraduate Research Assistant (REU)",
+          "ML Pipeline Development",
+          "Literature Synthesis"
+        ],
+        context: [
+          "Daub Lab · Karolinska Institutet",
+          "NSF IRES US–Sweden Program"
+        ],
+        outcomes: [
+          "Poster Presentation @ BMES 2026 (Orlando, FL)"
+        ],
+        links: [
+          {
+            label: "NSF IRES US–Sweden Program",
+            url: "https://sites.google.com/sandiego.edu/nsf-ires-us-sweden/home"
+          }
+        ],
+        paragraphs: [
+          "As an Undergraduate Research Assistant (REU) in the Daub Lab at Karolinska Institutet in Stockholm, I conducted literature reviews on breast cancer biology and developed machine learning approaches linking clinical imaging with molecular tissue architecture.",
+          "Our study integrates clinical radiomics and spatial transcriptomics to characterize mammographic density patterns across Estrogen Receptor Positive (ER+) and Triple-Negative breast cancer subtypes.",
+          "Findings from this work are being presented at the 2026 Biomedical Engineering Society (BMES) Annual Meeting in Orlando, Florida."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Cross-Scale Biomarker Alignment",
+            body: [
+              "High mammographic breast density both masks lesions on clinical scans and independently elevates cancer risk, yet macro-level radiomic descriptors are rarely mapped onto underlying cellular gene expression."
+            ]
+          },
+          {
+            anchor: "chapter-02",
+            num: "02",
+            title: "Subtype Feature Modeling (ER+ vs. Triple-Negative)",
+            body: [
+              "We structured quantitative radiomic texture features alongside spatially resolved transcriptomic profiles to compare stromal and epithelial signatures differentiating ER+ and triple-negative breast cancer cohorts."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with radiomics-to-spatial-transcriptomics integration figure.",
+            wide: true
+          },
+          {
+            src: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=750&q=80",
+            caption: "Placeholder visual — swap with ER+ vs. triple-negative feature plots."
+          },
+          {
+            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=750&q=80",
+            caption: "Placeholder visual — swap with BMES 2026 conference poster."
+          }
+        ]
+      },
+      {
+        id: "sdoh-recommender",
+        section: "featured",
+        kicker: "Health Equity Informatics",
+        title: "Social Determinants of Health Location Recommender",
+        heroTitleHTML: `<span class="stagger-left">SDOH Location</span><span class="stagger-right">Recommender</span>`,
+        subtitle: "HEALTH EQUITY INFORMATICS · SPATIAL ALGORITHMS · KOTLIN",
+        heroStart: "#3d7564",
+        heroMid: "#94c2b4",
+        heroCutoutImg: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80",
+        summary: "Weighted KD-tree ranking algorithm analyzing county-level SDOH metrics across 900+ counties in Kotlin.",
+        venue: "Data Analysis · Dec 2025",
+        year: "Dec 2025",
+        collaboration: "Solo",
+        teamMembers: [],
+        roles: [
+          "Data Analyst",
+          "Algorithm Design",
+          "Spatial Indexing"
+        ],
+        context: [
+          "Health Equity & Data Structures"
+        ],
+        outcomes: [
+          "Indexed 900+ U.S. counties across weighted SDOH dimensions"
+        ],
+        links: [],
+        paragraphs: [
+          "Developed a weighted ranking algorithm in Kotlin using KD-trees to analyze county-level social determinants of health (SDOH) across more than 900 U.S. counties.",
+          "The engine enables multi-factor comparison of healthcare access, environmental burden, and socioeconomic indicators so users can evaluate community-level health contexts dynamically."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "KD-Tree Spatial Partitioning",
+            body: [
+              "To support fast multi-dimensional similarity queries across 900+ counties, county SDOH vectors were indexed in a balanced KD-tree structure written from scratch in Kotlin."
+            ]
+          },
+          {
+            anchor: "chapter-02",
+            num: "02",
+            title: "Weighted Equity Scoring",
+            body: [
+              "Users assign custom weights across healthcare proximity, environmental metrics, and economic indicators to surface trade-offs hidden in single-index rankings."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with KD-tree county ranking output.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "clinical-trial-equity",
+        section: "featured",
+        kicker: "Health Equity & Policy",
+        title: "Clinical Trial Methodologies & Participant Distrust",
+        heroTitleHTML: `<span class="stagger-right">Clinical Trial</span><span class="stagger-left">Trust &amp; Access</span>`,
+        subtitle: "PARTICIPATORY HEALTH POLICY · REPRODUCTIVE & CLINICAL EQUITY",
+        heroStart: "#6c5285",
+        heroMid: "#b6a2c9",
+        heroCutoutImg: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80",
+        summary: "Evaluating clinical study protocols and designing targeted interventions for equitable trial participation.",
+        venue: "Health Equity & Access Lab · Fenway Health",
+        year: "2025–2026",
+        collaboration: "Group",
+        teamMembers: [
+          "Collaborator 1",
+          "Collaborator 2"
+        ],
+        roles: [
+          "Research Assistant (HEAL)",
+          "Activist Academy Fellow (Fenway Health)"
+        ],
+        context: [
+          "Health Equity and Access Lab",
+          "Fenway Health Reproductive Health Team"
+        ],
+        outcomes: [
+          "Presented @ AAAS Annual Meeting 2025"
+        ],
+        links: [
+          { label: "Fenway Health", url: "https://fenwayhealth.org/" }
+        ],
+        paragraphs: [
+          "In Olin’s Health Equity and Access Lab, I analyzed clinical trial methodologies to trace structural causes of participant distrust and propose targeted, community-grounded protocol reforms.",
+          "Alongside my work as an Activist Academy Fellow on the Reproductive Health Team at Fenway Health, I examined systemic barriers to equitable care and presented findings at the 2025 AAAS Annual Meeting."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Auditing Clinical Recruitment Protocols",
+            body: [
+              "Rather than framing under-enrollment solely as an individual awareness issue, our analysis examined exclusion criteria, uncompensated participation burdens, and opaque informed consent documents."
+            ]
+          },
+          {
+            anchor: "chapter-02",
+            num: "02",
+            title: "Community-Centered Governance Recommendations",
+            body: [
+              "Synthesized actionable design recommendations pairing transparent consent communication with sustained community advisory oversight."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with clinical trial equity framework diagram.",
+            wide: true
+          }
+        ]
+      },
+
+      /* ---- SECTION 2: ENGINEERING & BIOMEDICAL BUILDS ---- */
+      {
+        id: "symptom-mapping",
+        section: "builds",
+        kicker: "Clinical Informatics",
+        title: "Patient Symptom Mapping & Decision Support Tool",
+        heroTitleHTML: `<span class="stagger-left">Patient Symptom</span><span class="stagger-right">Decision Support</span>`,
+        subtitle: "CLINICAL INFORMATICS · BIPARTITE GRAPH MODELING · KOTLIN",
+        heroStart: "#497999",
+        heroMid: "#9ec0d6",
+        heroCutoutImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+        summary: "Bipartite graph model in Kotlin connecting structured symptom and disease ontologies.",
+        venue: "Informatics Developer · Oct 2025",
+        year: "Oct 2025",
+        collaboration: "Group",
+        teamMembers: [
+          "Partner Name"
+        ],
+        roles: ["Informatics Developer", "Graph Modeling"],
+        context: ["Clinical Decision Support Systems"],
+        outcomes: ["Transparent bipartite disease-symptom traversal engine"],
+        links: [],
+        paragraphs: [
+          "Implemented a bipartite graph-based model using Kotlin to link diseases and symptoms, leveraging structured clinical data to support diagnostic awareness and patient preparation."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Bipartite Ontology Graph",
+            body: [
+              "Modeled symptoms and conditions as disjoint vertex sets connected by weighted clinical association edges, allowing transparent multi-symptom querying without opaque black-box scoring."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with bipartite graph visualization.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "nutrition-trends",
+        section: "builds",
+        kicker: "Public Health Data",
+        title: "Nutritional Trends Longitudinal Data Pipeline",
+        heroTitleHTML: `<span class="stagger-right">Nutritional</span><span class="stagger-left">Trends Pipeline</span>`,
+        subtitle: "LARGE-SCALE DATA ENGINEERING · PYTHON · USDA API",
+        heroStart: "#3d7564",
+        heroMid: "#94c2b4",
+        heroCutoutImg: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80",
+        summary: "Python pipeline processing 143,000+ longitudinal USDA records across JSON and CSV formats.",
+        venue: "Python · Apr 2025",
+        year: "Apr 2025",
+        collaboration: "Group",
+        teamMembers: [
+          "Teammate Name 1",
+          "Teammate Name 2"
+        ],
+        roles: ["Data Analyst", "API Ingestion & Schema Normalization"],
+        context: ["Public Health Nutrition Informatics"],
+        outcomes: ["143,000+ longitudinal USDA records normalized"],
+        links: [
+          { label: "View GitHub Repository", url: "https://github.com/olincollege/nutrition-trends" }
+        ],
+        paragraphs: [
+          "Built a Python data pipeline to process 143,000+ longitudinal USDA records retrieved via API, handling large-scale JSON and CSV datasets for reproducible public health nutrition analysis."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Multi-Format API & CSV Harmonization",
+            body: [
+              "Automated ingestion across paginated USDA REST endpoints and legacy CSV releases, reconciling shifting nutrient identifiers into a unified longitudinal schema."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with longitudinal nutrient trend chart.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "emg-prosthetic",
+        section: "builds",
+        kicker: "Assistive Hardware",
+        title: "EMG-Controlled Prosthetic Arm Prototype",
+        heroTitleHTML: `<span class="stagger-left">EMG-Controlled</span><span class="stagger-right">Prosthetic Arm</span>`,
+        subtitle: "BIOSIGNAL PROCESSING · ASSISTIVE ROBOTICS · HARDWARE",
+        heroStart: "#9e3b54",
+        heroMid: "#d494a4",
+        heroCutoutImg: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80",
+        summary: "Real-time EMG signal acquisition and actuation control for an assistive prosthetic prototype.",
+        venue: "Biomedical Engineering",
+        year: "2025",
+        collaboration: "Group",
+        teamMembers: [
+          "Teammate Name 1",
+          "Teammate Name 2"
+        ],
+        roles: ["Biosignal Filtering", "Mechanical Fabrication", "Embedded Actuation"],
+        context: ["Biomedical Instrumentation & Prototyping"],
+        outcomes: ["Real-time surface EMG grasp actuation"],
+        links: [],
+        paragraphs: [
+          "Fabricated a prosthetic arm prototype controlled by surface EMG signals, implementing real-time signal processing pipelines for responsive movement precision."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Surface EMG Conditioning & Actuation",
+            body: [
+              "Filtered, rectified, and envelope-smoothed noisy forearm surface EMG readings to drive reliable servo grasp thresholds without false triggers."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with prosthetic arm prototype photo.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "methylparaben",
+        section: "builds",
+        kicker: "Environmental Health",
+        title: "Microbial Degradation of Methylparaben in Black Hair Care",
+        heroTitleHTML: `<span class="stagger-right">Degrading</span><span class="stagger-left">Methylparaben</span>`,
+        subtitle: "MICROBIAL BIOREMEDIATION · ENVIRONMENTAL HEALTH EQUITY",
+        heroStart: "#6c5285",
+        heroMid: "#b6a2c9",
+        heroCutoutImg: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=700&q=80",
+        summary: "Evaluating microbial methods to degrade endocrine-disrupting parabens in personal care products.",
+        venue: "Wet-Lab Study",
+        year: "2024–2025",
+        collaboration: "Group",
+        teamMembers: [
+          "Lab Partner 1",
+          "Lab Partner 2"
+        ],
+        roles: ["Wet-Lab Researcher", "Assay Design"],
+        context: ["Environmental & Consumer Product Health Equity"],
+        outcomes: ["Quantified microbial methylparaben breakdown across assay conditions"],
+        links: [],
+        paragraphs: [
+          "Differentiated methods to microbially degrade methylparabens within Black hair care products, investigating biological remediation approaches for endocrine-disrupting preservatives."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Comparative Biodegradation Assays",
+            body: [
+              "Evaluated microbial breakdown efficiency across paraben concentrations representative of leave-in personal care formulations."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with wet-lab assay poster or culture results.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "justice-chamber",
+        section: "builds",
+        kicker: "Systems & Epidemiology",
+        title: "Justice Chamber & Mask Effectiveness Modeling",
+        heroTitleHTML: `<span class="stagger-left">Justice</span><span class="stagger-right">Chamber</span>`,
+        subtitle: "HUMAN-CENTERED DESIGN · STATISTICAL EPIDEMIOLOGY",
+        heroStart: "#497999",
+        heroMid: "#9ec0d6",
+        heroCutoutImg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80",
+        summary: "Statistical modeling of mask compliance paired with human-centered public health design.",
+        venue: "Human-Centered Design",
+        year: "2024",
+        collaboration: "Group",
+        teamMembers: [
+          "Teammate Name 1",
+          "Teammate Name 2"
+        ],
+        roles: ["Systems Modeler", "Human-Centered Designer"],
+        context: ["Public Health Systems & Speculative Design"],
+        outcomes: ["Interactive project website & statistical simulation report"],
+        links: [
+          { label: "Visit Justice Chamber Site", url: "https://sites.google.com/view/justicechamber/home" }
+        ],
+        paragraphs: [
+          "Modeled infectious outcomes using statistical distributions to evaluate how mask compliance reduces sick days, paired with Justice Chamber—a human-centered design project exploring collective health decisions."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Probabilistic Compliance Modeling",
+            body: [
+              "Simulated population-level sick-day distributions across varying compliance thresholds to connect quantitative epidemiology with human-centered public health design."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with Justice Chamber interface & simulation plot.",
+            wide: true
+          }
+        ]
+      },
+      {
+        id: "pid-robot",
+        section: "builds",
+        kicker: "Robotics & Controls",
+        title: "PID Line-Following Autonomous Robot",
+        heroTitleHTML: `<span class="stagger-right">PID Autonomous</span><span class="stagger-left">Robot</span>`,
+        subtitle: "ARDUINO · CLOSED-LOOP CONTROL SYSTEMS · SENSORS",
+        heroStart: "#7a6248",
+        heroMid: "#c2ad95",
+        heroCutoutImg: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80",
+        primaryImg: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=700&q=80",
+        hoverImg: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80",
+        summary: "Closed-loop PID control architecture and IR sensor calibration on Arduino hardware.",
+        venue: "Embedded Systems",
+        year: "2024",
+        collaboration: "Group",
+        teamMembers: [
+          "Teammate Name 1",
+          "Teammate Name 2"
+        ],
+        roles: ["Embedded Firmware", "PID Controller Tuning", "Sensor Calibration"],
+        context: ["Principles of Engineering & Controls"],
+        outcomes: ["Closed-loop trajectory tracking with minimal oscillation"],
+        links: [],
+        paragraphs: [
+          "Developed a line-following robot using Arduino and IR sensors, implementing a closed-loop PID control system to optimize motor responsiveness and cornering stability."
+        ],
+        chapters: [
+          {
+            anchor: "chapter-01",
+            num: "01",
+            title: "Closed-Loop Gain Tuning",
+            body: [
+              "Calibrated multi-channel infrared reflectance thresholds and iteratively tuned proportional, integral, and derivative gains to eliminate oscillation around high-curvature bends."
+            ]
+          }
+        ],
+        gallery: [
+          {
+            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1100&q=80",
+            caption: "Placeholder visual — swap with Arduino PID robot chassis photo.",
+            wide: true
+          }
+        ]
+      }
+    ];
+
+    // ============================================================
+    // 5. RENDER PROJECT CARDS
+    // ============================================================
+    function renderCards() {
+      const featuredGrid = document.getElementById("featured-grid");
+      const buildsGrid = document.getElementById("builds-grid");
+
+      PROJECTS.forEach((proj, idx) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "project-card";
+
+        card.innerHTML = `
+          <div class="thumb-frame">
+            <img src="${proj.primaryImg}" alt="${proj.title}" class="img-primary" loading="lazy" />
+            <img src="${proj.hoverImg}" alt="${proj.title} alternate view" class="img-hover" loading="lazy" />
+          </div>
+          <p class="project-kicker">${proj.kicker}</p>
+          <h3 class="project-title">${proj.title}</h3>
+          <p class="project-summary">${proj.summary}</p>
+          <p class="project-venue">${proj.venue}</p>
+        `;
+
+        card.addEventListener("click", () => openCaseStudy(idx));
+
+        if (proj.section === "featured") {
+          featuredGrid.appendChild(card);
+        } else {
+          buildsGrid.appendChild(card);
+        }
+      });
+    }
+    renderCards();
+
+    // ============================================================
+    // 6. FULL SCROLLABLE NEWSPAPER CASE-STUDY VIEW + SCROLL PROGRESS
+    // ============================================================
+    let activeCaseIndex = 0;
+    const caseOverlay = document.getElementById("case-study-view");
+    const caseProgressFill = document.getElementById("case-progress-fill");
+    const caseContentWrap = document.getElementById("case-content-wrap");
+
+    function updateCaseProgress() {
+      const scrollTop = caseOverlay.scrollTop;
+      const maxScroll = caseOverlay.scrollHeight - caseOverlay.clientHeight;
+      const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (scrollTop / maxScroll) * 100)) : 0;
+      caseProgressFill.style.width = `${pct}%`;
+    }
+
+    caseOverlay.addEventListener("scroll", updateCaseProgress);
+
+    function openCaseByTextFragment(projectId, textFragment) {
+      const idx = PROJECTS.findIndex((item) => item.id === projectId);
+      if (idx !== -1) {
+        openCaseStudy(idx, textFragment);
+      }
+    }
+
+    function openCaseStudy(index, textFragment) {
+      activeCaseIndex = (index + PROJECTS.length) % PROJECTS.length;
+      const p = PROJECTS[activeCaseIndex];
+
+      const hero = document.getElementById("case-hero");
+      hero.style.setProperty("--hero-start", p.heroStart);
+      hero.style.setProperty("--hero-mid", p.heroMid);
+
+      document.getElementById("case-desk-tag").textContent = p.kicker;
+
+      // Subject Cutout Image Behind Overlaid Title
+      const cutout = document.getElementById("case-hero-cutout");
+      cutout.onerror = () => {
+        if (p.heroCutoutFallback && cutout.src !== p.heroCutoutFallback) {
+          cutout.src = p.heroCutoutFallback;
+        }
+      };
+      cutout.src = p.heroCutoutImg || p.primaryImg;
+      cutout.alt = p.title;
+
+      const titleEl = document.getElementById("case-title");
+      if (p.heroTitleHTML) {
+        titleEl.innerHTML = p.heroTitleHTML;
+      } else {
+        titleEl.textContent = p.title;
+      }
+      document.getElementById("case-subtitle").textContent = p.subtitle;
+
+      // Left Metadata Rail (includes Solo vs. Group + teamMembers list)
+      const teamHTML =
+        p.collaboration === "Group"
+          ? `<div>Group</div>${
+              p.teamMembers && p.teamMembers.length > 0
+                ? `<ul>${p.teamMembers.map((person) => `<li>${person}</li>`).join("")}</ul>`
+                : ""
+            }`
+          : (p.collaboration || "Solo");
+
+      const metaRows = [
+        { label: "YEAR", value: p.year },
+        { label: "ROLE", list: p.roles },
+        { label: "TEAM", value: teamHTML },
+        { label: "LAB / CONTEXT", list: p.context },
+        { label: "OUTCOME", list: p.outcomes }
+      ];
+
+      let metaHTML = metaRows
+        .map((row) => {
+          const valHTML = row.list
+            ? `<ul>${row.list.map((item) => `<li>${item}</li>`).join("")}</ul>`
+            : row.value;
+          return `<div class="case-meta-label">${row.label}</div><div class="case-meta-value">${valHTML}</div>`;
+        })
+        .join("");
+
+      if (p.links && p.links.length > 0) {
+        const linksList = p.links
+          .map((l) => `<li><a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a></li>`)
+          .join("");
+        metaHTML += `<div class="case-meta-label">LINKS</div><div class="case-meta-value"><ul>${linksList}</ul></div>`;
+      }
+
+      document.getElementById("case-meta-table").innerHTML = metaHTML;
+
+      // Right Narrative Paragraphs
+      document.getElementById("case-narrative").innerHTML = p.paragraphs
+        .map((text) => `<p>${text}</p>`)
+        .join("");
+
+      // Numbered Chapters
+      const chaptersEl = document.getElementById("case-sections-stack");
+      if (p.chapters && p.chapters.length > 0) {
+        chaptersEl.innerHTML = p.chapters
+          .map(
+            (ch) => `
+              <section id="${ch.anchor || ""}" class="case-chapter">
+                <div class="chapter-heading-col">
+                  <span class="chapter-num">${ch.num} /</span>
+                  <h3 class="chapter-heading">${ch.title}</h3>
+                </div>
+                <div class="chapter-body">
+                  ${ch.body.map((para) => `<p>${para}</p>`).join("")}
+                  ${ch.quote ? `<blockquote class="chapter-quote">${ch.quote}</blockquote>` : ""}
+                </div>
+              </section>
+            `
+          )
+          .join("");
+        chaptersEl.style.display = "flex";
+      } else {
+        chaptersEl.innerHTML = "";
+        chaptersEl.style.display = "none";
+      }
+
+      // Scrollable Visual Gallery Below
+      document.getElementById("case-gallery").innerHTML = p.gallery
+        .map(
+          (fig) => `
+            <figure class="case-figure ${fig.wide ? "wide" : ""}">
+              <img src="${fig.src}" alt="${fig.caption}" loading="lazy" ${fig.fallback ? `onerror="this.src='${fig.fallback}'"` : ""} />
+              <figcaption>${fig.caption}</figcaption>
+            </figure>
+          `
+        )
+        .join("");
+
+      // Update Bottom Prev/Next Project Labels
+      const prevProj = PROJECTS[(activeCaseIndex - 1 + PROJECTS.length) % PROJECTS.length];
+      const nextProj = PROJECTS[(activeCaseIndex + 1) % PROJECTS.length];
+      document.getElementById("footer-prev-btn").textContent = `← ${prevProj.title}`;
+      document.getElementById("footer-next-btn").textContent = `${nextProj.title} →`;
+
+      caseOverlay.classList.add("open");
+      document.body.classList.add("case-open");
+
+      if (textFragment) {
+        requestAnimationFrame(() => {
+          const found = applyTextFragmentHighlight(caseContentWrap, textFragment);
+          if (!found) {
+            caseOverlay.scrollTop = 0;
+          }
+          updateCaseProgress();
+        });
+      } else {
+        clearTextFragmentHighlights(caseContentWrap);
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+        caseOverlay.scrollTop = 0;
+        updateCaseProgress();
+      }
+    }
+
+    function closeCaseStudy() {
+      caseOverlay.classList.remove("open");
+      document.body.classList.remove("case-open");
+      clearTextFragmentHighlights(caseContentWrap);
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+
+    function stepCaseStudy(delta) {
+      openCaseStudy(activeCaseIndex + delta);
+    }
+
+    // ============================================================
+    // 7. PUBLICATIONS POP-UP & KEYBOARD NAVIGATION
+    // ============================================================
+    const pubModal = document.getElementById("pub-modal");
+    function openPubModal() {
+      pubModal.classList.add("open");
+    }
+    function closePubModal() {
+      pubModal.classList.remove("open");
+    }
+
+    pubModal.addEventListener("click", (e) => {
+      if (e.target === pubModal) closePubModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (pubModal.classList.contains("open")) {
+          closePubModal();
+        } else if (caseOverlay.classList.contains("open")) {
+          closeCaseStudy();
+        }
+      } else if (caseOverlay.classList.contains("open") && !pubModal.classList.contains("open")) {
+        if (e.key === "ArrowLeft") stepCaseStudy(-1);
+        if (e.key === "ArrowRight") stepCaseStudy(1);
+      }
+    });
+  </script>
+</body>
+</html>
